@@ -4,8 +4,6 @@ Welcome to my portfolio! Here you can find all my projects in the data universe.
 
 ##  📚 Table of Contents
 
-- [🌍 My Portfolio 🗺](#-my-portfolio-)
-  - [📚 Table of Contents](#-table-of-contents)
 - [Python's EDA](#pythons-eda)
 - [Machine Learning Python Projects](#machine-learning-python-projects)
 - [Data Analysis using SQL](#data-analysis-using-sql)
