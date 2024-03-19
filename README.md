@@ -4,9 +4,11 @@ Welcome to my portfolio! Here you can find all my projects in the data universe.
 
 ##  📚 Table of Contents
 
+- [🌍 My Portfolio 🗺](#-my-portfolio-)
+  - [📚 Table of Contents](#-table-of-contents)
 - [Python's EDA](#pythons-eda)
-- [Python's ML](#pythons-ml)
-- [Data Analysis using SQL](#sql-data-analysis)
+- [Machine Learning Python Projects](#machine-learning-python-projects)
+- [Data Analysis using SQL](#data-analysis-using-sql)
 - [Streamlit Apps](#streamlit-apps)
 
 
@@ -23,13 +25,12 @@ Welcome to my portfolio! Here you can find all my projects in the data universe.
 
 <br>
 
-#  Python's ML
+# Machine Learning Python Projects
 
 | Project Link | Completion Date | Tools | Project Description |
 |---|---|---|---|
-| 📲 [Google Play Store](https://github.com/katiehuangx/data-engineering/tree/main/Uber%20Project)  | May 2023 | Python, GCP (Storage, Compute Engine, BigQuery), Mage, Looker Studio | Developed and implemented an end-to-end ETL pipeline for processinsg NYC Trip Record data. The pipeline encompassed extracting raw data, performing data transformation using Python, applying fact and dimensional data modelling techniques, orchestrating the pipeline on Mage, and ultimately creating a dashboard using Looker Studio. |
-| ⚽️ [Premier League](https://github.com/katiehuangx/data-engineering/tree/main/Dog%20Adoption)  | Mar 2023 |Python, PostgreSQL, Jupyter Notebook | Designed, created, and deployed a custom data model for a dog adoption data set using Python and PostgreSQL on Jupyter Notebook. |
-| 🏍️ [MotoGP World Championships](https://github.com/katiehuangx/data-engineering/tree/main/Dog%20Adoption)  | Mar 2023 |Python, PostgreSQL, Jupyter Notebook | Designed, created, and deployed a custom data model for a dog adoption data set using Python and PostgreSQL on Jupyter Notebook. |
+| 👁️ [Iris Dataset Classification](https://github.com/diogo-costa-silva/machine-learning-python-projects/tree/main/Iris%20Dataset%20Classification)  | May 2023 | Python, Jupyter Notebook | Developed and implemented an end-to-end ETL pipeline for processinsg NYC Trip Record data. The pipeline encompassed extracting raw data, performing data transformation using Python, applying fact and dimensional data modelling techniques, orchestrating the pipeline on Mage, and ultimately creating a dashboard using Looker Studio. |
+| ⚽️ [Project 2](https://github.com/katiehuangx/data-engineering/tree/main/Dog%20Adoption)  | Mar 2023 |Python (scikit-learn), Jupyter Notebook | A simple description |
 
 <br>
 
