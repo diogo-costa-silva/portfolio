@@ -9,6 +9,7 @@
     "sync": "node scripts/sync.mjs",
     "candidates": "node scripts/sync.mjs --candidates",
     "check": "node scripts/sync.mjs --check",
+    "tags": "node scripts/sync.mjs --tags",
     "build:v1": "node adapters/to-v1-vanilla.mjs",
     "build:readme": "node adapters/to-profile-readme.mjs"
   }

@@ -22,7 +22,10 @@ const INCLUDE_ARCHIVED = false;
 const SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
 
 const args = new Set(process.argv.slice(2));
-const MODE = args.has("--candidates") ? "candidates" : args.has("--check") ? "check" : "generate";
+const MODE = args.has("--candidates") ? "candidates"
+  : args.has("--tags") ? "tags"
+  : args.has("--check") ? "check"
+  : "generate";
 
 // ---------- helpers ----------
 const read = (p) => JSON.parse(readFileSync(join(ROOT, p), "utf8"));
@@ -186,6 +189,16 @@ const payload = {
   count: projects.length,
   projects,
 };
+
+if (MODE === "tags") {
+  const counts = new Map();
+  for (const p of projects) for (const t of p.tags) counts.set(t, (counts.get(t) || 0) + 1);
+  const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  console.log(`\nDistinct tags across ${projects.length} project(s) — review for synonyms to alias:\n`);
+  for (const [tag, n] of sorted) console.log(`  ${String(n).padStart(2)}  ${tag}`);
+  console.log(`\n${sorted.length} distinct tags. Add canonicalizations to TAG_ALIASES in scripts/sync.mjs.\n`);
+  process.exit(0);
+}
 
 if (MODE === "check") {
   console.log(`✓ ${projects.length} project(s) valid. No file written (--check).`);

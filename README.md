@@ -35,6 +35,7 @@ npm run build:readme                            # print profile README tables
 
 ## Docs
 
+- **[GUIDE.md](GUIDE.md)** — complete operating guide: every workflow + command. Start here.
 - **[SCHEMA.md](SCHEMA.md)** — canonical field reference (schema.org-aligned).
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** — how to add/curate projects + taxonomy governance.
 - **[data/taxonomy.json](data/taxonomy.json)** — controlled vocabularies (category, status).

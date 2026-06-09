@@ -6,6 +6,8 @@ Repurposed `portfolio` from a hand-maintained README into the canonical,
 website-agnostic portfolio data hub.
 
 ### Added
+- `GUIDE.md` — complete operating guide (all workflows + commands).
+- Tag audit mode (`npm run tags`) to surface synonym noise.
 - `scripts/sync.mjs` — zero-dependency engine that merges GitHub repo metadata
   (repos with the `portfolio` topic) with `data/overrides.json` into the canonical
   `data/projects.json`. Modes: default, `--candidates`, `--check`.
