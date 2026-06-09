@@ -101,7 +101,7 @@ function buildProject(repo, ov) {
     source: "github",
     links: {
       repo: repo.html_url,
-      demo: ov.demo || repo.homepage || null,
+      demo: ov.demo === false ? null : (ov.demo || repo.homepage || null),  // "demo": false disables a dead/wrong homepage
       docs: ov.docs || null,
     },
     media: {
