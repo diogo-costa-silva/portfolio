@@ -1,80 +1,87 @@
 {
-  "$comment": "The ONLY file you hand-edit. Keyed by slug (= repo name, or a custom slug for source:manual entries). Holds the human-authored fields; sync.mjs merges these over the GitHub-derived data. Any repo carrying the 'portfolio' topic but missing here is flagged as 'needs enrichment'. See SCHEMA.md for field semantics.",
+  "$comment": "The ONLY file you hand-edit. Keyed by slug (= repo name, or a custom slug for source:manual entries). Holds the human-authored fields; sync.mjs merges these over the GitHub-derived data. Any repo carrying the 'portfolio' topic but missing here is flagged as 'needs enrichment'. See docs/SCHEMA.md for field semantics.",
 
   "moto-routes": {
     "title": "Moto Routes",
-    "tagline": "Motorcycle route discovery platform",
-    "description": "Platform to discover, save and share motorcycle routes, with interactive maps and community features.",
+    "tagline": "Curated motorcycle routes from real GPS data",
+    "description": "Full-stack platform of verified Portuguese motorcycle routes — interactive Mapbox maps, multi-stage journey planning and GPX export. Built on React 19 + Supabase/PostGIS.",
+    "highlight": "Real GPS routes, GPX export, bilingual",
     "category": "web",
-    "tags": ["react", "mapbox", "supabase", "typescript"],
+    "tags": ["react", "typescript", "supabase", "mapbox", "postgis"],
     "featured": true,
     "weight": 10
   },
 
   "scenic-routes-simple": {
     "title": "Scenic Routes",
-    "tagline": "Best scenic roads in Portugal",
-    "description": "MVP that maps the best scenic national roads in Portugal on an interactive map.",
-    "highlight": "20 national roads, interactive map",
+    "tagline": "The 20 best scenic driving roads in Portugal",
+    "description": "Interactive map of 20 hand-picked Portuguese scenic roads. React + Leaflet front-end, Python (GeoPandas) data pipeline, deployed on Vercel.",
     "category": "web",
-    "tags": ["react", "leaflet", "python"],
+    "tags": ["react", "leaflet", "python", "geopandas"],
     "featured": true,
     "weight": 9
+  },
+
+  "doc-chatbot-multi-llm": {
+    "title": "Multi-LLM Doc Chatbot",
+    "tagline": "Chat with your PDFs across Gemini, Groq & Ollama",
+    "description": "Upload TXT/PDF documents and query them with multiple LLMs (Google Gemini, Groq, local Ollama). Streaming answers and summaries. Deployed on Hugging Face Spaces.",
+    "highlight": "3 LLM backends, streaming Q&A",
+    "category": "ai-apps",
+    "tags": ["llm", "gemini", "groq", "ollama", "streamlit"],
+    "featured": true,
+    "weight": 10
+  },
+
+  "ibm-hr-analytics": {
+    "title": "IBM HR Analytics",
+    "tagline": "What drives employee attrition?",
+    "description": "Exploratory data analysis of the IBM HR attrition dataset in R, uncovering the factors behind employee turnover. Cegid Academy Data Science Program.",
+    "highlight": "EDA in R",
+    "category": "data-analytics",
+    "tags": ["r", "eda", "data-visualization"],
+    "featured": true,
+    "weight": 8
+  },
+
+  "motogp-analytics": {
+    "title": "MotoGP Analytics",
+    "tagline": "Exploring 70+ years of MotoGP data (1949–2022)",
+    "description": "Data analytics over MotoGP championship datasets from 1949 to 2022, with a reproducible UV + Jupyter pipeline.",
+    "category": "data-analytics",
+    "tags": ["python", "pandas", "jupyter"],
+    "featured": true,
+    "weight": 7
   },
 
   "streamlit-sales-dashboard": {
     "title": "Sales Dashboard",
     "tagline": "Interactive sales analytics dashboard",
-    "description": "Streamlit web app for exploring sales data with interactive filters and KPI visualizations.",
+    "description": "Streamlit dashboard exploring sales KPIs with interactive filters and charts. Live on Streamlit Cloud.",
     "category": "data-analytics",
     "tags": ["streamlit", "python", "pandas"],
-    "featured": true,
-    "weight": 8
-  },
-
-  "doc-chatbot-multi-llm": {
-    "title": "Multi-LLM Doc Chatbot",
-    "tagline": "Analyze TXT and PDF documents with multiple LLMs",
-    "description": "Chatbot that analyzes TXT and PDF documents using several Large Language Models, comparing their responses.",
-    "category": "ai-apps",
-    "tags": ["llm", "streamlit", "python", "text-analysis"],
-    "featured": true,
-    "weight": 8
+    "featured": false,
+    "weight": 6
   },
 
   "streamlit-data-analysis-chatbot": {
     "title": "Data Analysis Chatbot",
-    "tagline": "Chat-driven data analysis and visualization",
-    "description": "Simple chatbot for data analysis and visualization using PandasAI and OpenAI.",
+    "tagline": "Ask questions about your data in plain English",
+    "description": "Chatbot for conversational data analysis and visualization using PandasAI + OpenAI.",
     "category": "ai-apps",
     "tags": ["pandasai", "openai", "streamlit", "python"],
+    "featured": false,
     "weight": 6
-  },
-
-  "ibm-hr-analytics": {
-    "title": "IBM HR Analytics",
-    "tagline": "Exploratory analysis of HR attrition data",
-    "description": "Exploratory Data Analysis of the IBM HR Analytics dataset using R, from the Cegid Academy Data Science Program.",
-    "category": "data-analytics",
-    "tags": ["r", "eda", "data-visualization"],
-    "weight": 5
-  },
-
-  "motogp-analytics": {
-    "title": "MotoGP Analytics",
-    "tagline": "Data analysis of MotoGP championships",
-    "description": "Notebooks exploring MotoGP World Championship data and rider/constructor performance.",
-    "category": "data-analytics",
-    "tags": ["python", "pandas", "jupyter"],
-    "weight": 5
   },
 
   "sql-murder-mystery": {
     "title": "SQL Murder Mystery",
-    "tagline": "Solving a murder with SQL",
-    "description": "Solution to Knight Lab's SQL Murder Mystery: interrogating a relational database with SQL to find the culprit.",
+    "tagline": "Cracking a murder case with SQL",
+    "description": "My solution to Knight Lab's SQL Murder Mystery — interrogating a relational database with SQL to identify the culprit.",
+    "highlight": "Knight Lab challenge",
     "category": "data-engineering",
     "tags": ["sql", "jupyter"],
-    "weight": 4
+    "featured": false,
+    "weight": 5
   }
 }

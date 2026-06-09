@@ -5,10 +5,85 @@
   "count": 8,
   "projects": [
     {
+      "slug": "ibm-hr-analytics",
+      "title": "IBM HR Analytics",
+      "tagline": "What drives employee attrition?",
+      "description": "Exploratory data analysis of the IBM HR attrition dataset in R, uncovering the factors behind employee turnover. Cegid Academy Data Science Program.",
+      "highlight": "EDA in R",
+      "category": "data-analytics",
+      "tags": [
+        "r",
+        "eda",
+        "data-visualization",
+        "jupyter"
+      ],
+      "status": "active",
+      "featured": true,
+      "weight": 8,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/ibm-hr-analytics",
+        "demo": null,
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/ibm-hr-analytics",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "Jupyter Notebook",
+        "stars": 0,
+        "license": null,
+        "createdAt": "2026-03-22T13:14:11Z",
+        "updatedAt": "2026-03-22T14:15:46Z",
+        "topics": [
+          "portfolio"
+        ]
+      }
+    },
+    {
+      "slug": "motogp-analytics",
+      "title": "MotoGP Analytics",
+      "tagline": "Exploring 70+ years of MotoGP data (1949–2022)",
+      "description": "Data analytics over MotoGP championship datasets from 1949 to 2022, with a reproducible UV + Jupyter pipeline.",
+      "highlight": null,
+      "category": "data-analytics",
+      "tags": [
+        "python",
+        "pandas",
+        "jupyter"
+      ],
+      "status": "active",
+      "featured": true,
+      "weight": 7,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/motogp-analytics",
+        "demo": null,
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/motogp-analytics",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "Jupyter Notebook",
+        "stars": 0,
+        "license": null,
+        "createdAt": "2025-09-10T14:50:18Z",
+        "updatedAt": "2025-09-10T14:52:22Z",
+        "topics": [
+          "portfolio"
+        ]
+      }
+    },
+    {
       "slug": "streamlit-sales-dashboard",
       "title": "Sales Dashboard",
       "tagline": "Interactive sales analytics dashboard",
-      "description": "Streamlit web app for exploring sales data with interactive filters and KPI visualizations.",
+      "description": "Streamlit dashboard exploring sales KPIs with interactive filters and charts. Live on Streamlit Cloud.",
       "highlight": null,
       "category": "data-analytics",
       "tags": [
@@ -19,8 +94,8 @@
         "data-visualization"
       ],
       "status": "active",
-      "featured": true,
-      "weight": 8,
+      "featured": false,
+      "weight": 6,
       "visible": true,
       "source": "github",
       "links": {
@@ -48,86 +123,11 @@
       }
     },
     {
-      "slug": "ibm-hr-analytics",
-      "title": "IBM HR Analytics",
-      "tagline": "Exploratory analysis of HR attrition data",
-      "description": "Exploratory Data Analysis of the IBM HR Analytics dataset using R, from the Cegid Academy Data Science Program.",
-      "highlight": null,
-      "category": "data-analytics",
-      "tags": [
-        "r",
-        "eda",
-        "data-visualization",
-        "jupyter"
-      ],
-      "status": "active",
-      "featured": false,
-      "weight": 5,
-      "visible": true,
-      "source": "github",
-      "links": {
-        "repo": "https://github.com/diogo-costa-silva/ibm-hr-analytics",
-        "demo": null,
-        "docs": null
-      },
-      "media": {
-        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/ibm-hr-analytics",
-        "thumbnail": null
-      },
-      "repo": {
-        "language": "Jupyter Notebook",
-        "stars": 0,
-        "license": null,
-        "createdAt": "2026-03-22T13:14:11Z",
-        "updatedAt": "2026-03-22T14:15:46Z",
-        "topics": [
-          "portfolio"
-        ]
-      }
-    },
-    {
-      "slug": "motogp-analytics",
-      "title": "MotoGP Analytics",
-      "tagline": "Data analysis of MotoGP championships",
-      "description": "Notebooks exploring MotoGP World Championship data and rider/constructor performance.",
-      "highlight": null,
-      "category": "data-analytics",
-      "tags": [
-        "python",
-        "pandas",
-        "jupyter"
-      ],
-      "status": "active",
-      "featured": false,
-      "weight": 5,
-      "visible": true,
-      "source": "github",
-      "links": {
-        "repo": "https://github.com/diogo-costa-silva/motogp-analytics",
-        "demo": null,
-        "docs": null
-      },
-      "media": {
-        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/motogp-analytics",
-        "thumbnail": null
-      },
-      "repo": {
-        "language": "Jupyter Notebook",
-        "stars": 0,
-        "license": null,
-        "createdAt": "2025-09-10T14:50:18Z",
-        "updatedAt": "2025-09-10T14:52:22Z",
-        "topics": [
-          "portfolio"
-        ]
-      }
-    },
-    {
       "slug": "sql-murder-mystery",
       "title": "SQL Murder Mystery",
-      "tagline": "Solving a murder with SQL",
-      "description": "Solution to Knight Lab's SQL Murder Mystery: interrogating a relational database with SQL to find the culprit.",
-      "highlight": null,
+      "tagline": "Cracking a murder case with SQL",
+      "description": "My solution to Knight Lab's SQL Murder Mystery — interrogating a relational database with SQL to identify the culprit.",
+      "highlight": "Knight Lab challenge",
       "category": "data-engineering",
       "tags": [
         "sql",
@@ -135,7 +135,7 @@
       ],
       "status": "active",
       "featured": false,
-      "weight": 4,
+      "weight": 5,
       "visible": true,
       "source": "github",
       "links": {
@@ -161,21 +161,24 @@
     {
       "slug": "doc-chatbot-multi-llm",
       "title": "Multi-LLM Doc Chatbot",
-      "tagline": "Analyze TXT and PDF documents with multiple LLMs",
-      "description": "Chatbot that analyzes TXT and PDF documents using several Large Language Models, comparing their responses.",
-      "highlight": null,
+      "tagline": "Chat with your PDFs across Gemini, Groq & Ollama",
+      "description": "Upload TXT/PDF documents and query them with multiple LLMs (Google Gemini, Groq, local Ollama). Streaming answers and summaries. Deployed on Hugging Face Spaces.",
+      "highlight": "3 LLM backends, streaming Q&A",
       "category": "ai-apps",
       "tags": [
         "llm",
+        "gemini",
+        "groq",
+        "ollama",
         "streamlit",
-        "python",
-        "text-analysis",
         "chatbot",
-        "text-summarization"
+        "text-analysis",
+        "text-summarization",
+        "python"
       ],
       "status": "active",
       "featured": true,
-      "weight": 8,
+      "weight": 10,
       "visible": true,
       "source": "github",
       "links": {
@@ -207,8 +210,8 @@
     {
       "slug": "streamlit-data-analysis-chatbot",
       "title": "Data Analysis Chatbot",
-      "tagline": "Chat-driven data analysis and visualization",
-      "description": "Simple chatbot for data analysis and visualization using PandasAI and OpenAI.",
+      "tagline": "Ask questions about your data in plain English",
+      "description": "Chatbot for conversational data analysis and visualization using PandasAI + OpenAI.",
       "highlight": null,
       "category": "ai-apps",
       "tags": [
@@ -245,15 +248,16 @@
     {
       "slug": "moto-routes",
       "title": "Moto Routes",
-      "tagline": "Motorcycle route discovery platform",
-      "description": "Platform to discover, save and share motorcycle routes, with interactive maps and community features.",
-      "highlight": null,
+      "tagline": "Curated motorcycle routes from real GPS data",
+      "description": "Full-stack platform of verified Portuguese motorcycle routes — interactive Mapbox maps, multi-stage journey planning and GPX export. Built on React 19 + Supabase/PostGIS.",
+      "highlight": "Real GPS routes, GPX export, bilingual",
       "category": "web",
       "tags": [
         "react",
-        "mapbox",
+        "typescript",
         "supabase",
-        "typescript"
+        "mapbox",
+        "postgis"
       ],
       "status": "active",
       "featured": true,
@@ -283,14 +287,15 @@
     {
       "slug": "scenic-routes-simple",
       "title": "Scenic Routes",
-      "tagline": "Best scenic roads in Portugal",
-      "description": "MVP that maps the best scenic national roads in Portugal on an interactive map.",
-      "highlight": "20 national roads, interactive map",
+      "tagline": "The 20 best scenic driving roads in Portugal",
+      "description": "Interactive map of 20 hand-picked Portuguese scenic roads. React + Leaflet front-end, Python (GeoPandas) data pipeline, deployed on Vercel.",
+      "highlight": null,
       "category": "web",
       "tags": [
         "react",
         "leaflet",
-        "python"
+        "python",
+        "geopandas"
       ],
       "status": "active",
       "featured": true,
