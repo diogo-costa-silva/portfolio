@@ -1,6 +1,6 @@
 {
-  "$schema": "./SCHEMA.md",
-  "generatedBy": "scripts/sync.mjs",
+  "$schema": "./docs/SCHEMA.md",
+  "generatedBy": "tools/sync.mjs",
   "owner": "diogo-costa-silva",
   "count": 8,
   "projects": [

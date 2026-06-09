@@ -16,6 +16,8 @@ canonical data as the website and profile.
   live in `GUIDE.md`/`SCHEMA.md`/`CONTRIBUTING.md`).
 - `adapter-profile-readme.mjs` now emits the **featured** subset + links (not the full list).
 - Engine relocated to `tools/` (`scripts/` + `adapters/` merged) for a cleaner repo root.
+- Docs (`GUIDE`, `SCHEMA`, `CONTRIBUTING`) moved to `docs/` — root now holds only the
+  showcase README + data/tools/docs.
 - `sync.yml` now also rebuilds the README showcase and includes it in the PR.
 
 ## [1.0.0] - 2026-06-09

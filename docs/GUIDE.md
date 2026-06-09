@@ -252,4 +252,4 @@ node tools/adapter-profile-readme.mjs --write ~/Projects/diogo-costa-silva/READM
 | `tools/adapter-*.mjs` + `tools/lib.mjs` | Canonical → each surface | ⚙ only when adding a surface |
 | `README.md` | Generated GitHub vitrine (between markers) | 🚫 only the static header/footer |
 | `.github/workflows/sync.yml` | Weekly auto-sync → PR | ⚙ rarely |
-| `SCHEMA.md` / `CONTRIBUTING.md` / `GUIDE.md` | Docs | ✅ keep current |
+| `docs/` (GUIDE, SCHEMA, CONTRIBUTING) | Docs | ✅ keep current |

@@ -183,7 +183,7 @@ projects.sort((a, b) =>
 );
 
 const payload = {
-  $schema: "./SCHEMA.md",
+  $schema: "./docs/SCHEMA.md",
   generatedBy: "tools/sync.mjs",
   owner: OWNER,
   count: projects.length,
