@@ -68,7 +68,11 @@ const STATUSES = new Set(taxonomy.status.map((s) => s.id));
 const catOrder = new Map(taxonomy.categories.map((c) => [c.id, c.order]));
 
 // ---------- build one canonical project ----------
-const TAG_ALIASES = { "jupyter-notebook": "jupyter" };
+const TAG_ALIASES = {
+  "jupyter-notebook": "jupyter",
+  "streamlit-webapp": "streamlit",
+  "genai-chatbot": "chatbot",
+};
 const normTag = (t) => {
   const s = t.toLowerCase().trim().replace(/\s+/g, "-");
   return TAG_ALIASES[s] || s;

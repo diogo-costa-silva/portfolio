@@ -170,8 +170,7 @@
         "streamlit",
         "python",
         "text-analysis",
-        "genai-chatbot",
-        "streamlit-webapp",
+        "chatbot",
         "text-summarization"
       ],
       "status": "active",
