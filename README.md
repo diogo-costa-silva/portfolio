@@ -1,51 +1,40 @@
-#  🌍 My Portfolio 🗺
+# Portfolio Hub
 
-Welcome to my portfolio! Here you can find all my projects in the data universe.
+Canonical, **website-agnostic source of truth** for my projects. One dataset feeds
+every surface — the live site, future sites, and my GitHub profile README — so they
+never drift out of sync.
 
-##  📚 Table of Contents
+## How it works
 
-- [Python's EDA](#pythons-eda)
-- [Machine Learning Python Projects](#machine-learning-python-projects)
-- [Data Analysis using SQL](#data-analysis-using-sql)
-- [Streamlit Apps](#streamlit-apps)
+```
+GitHub repos (topic: portfolio)        data/overrides.json (hand-authored)
+        └──────────── scripts/sync.mjs (merge) ────────────┘
+                              ▼
+                  data/projects.json   ← canonical source of truth
+                              ▼  adapters/
+        ┌─────────────────────┼──────────────────────┐
+   webfolio-v1-vanilla   profile README          future webfolios
+   (live site)           (diogo-costa-silva)     (fetch the raw JSON)
+```
 
+- **Curation is opt-in:** a repo appears only if it carries the `portfolio` topic.
+- **Enrichment** (narrative, theme, featured) lives in `data/overrides.json` — the
+  only file edited by hand. Everything else is pulled from GitHub.
+- **Generation** is automated weekly via `.github/workflows/sync.yml`, which opens a
+  PR for review.
 
+## Commands
 
-#  Python's EDA
+```bash
+npm run candidates   # list public repos + whether they'd be included
+npm run sync         # regenerate data/projects.json
+npm run check        # validate without writing
+npm run build:v1 -- <site>/data/projects.json   # adapt to the live site schema
+npm run build:readme                            # print profile README tables
+```
 
-| Project Link | Completion Date | Tools | Project Description |
-|---|---|---|---|
-| 📲 [Google Play Store](https://github.com/diogo-costa-silva/eda-python-projects/tree/main/Google%20Play%20Store)  | May 2023 | Python (pandas; matplotlib), Jupyter Notebook | Analysis of a Google Play Store dataset containing data about several applications. |
-| 🛍️ [Super Store](https://github.com/diogo-costa-silva/eda-python-projects/tree/main/Super%20Store)  | Apr 2023 |Python (pandas; matplotlib), Jupyter Notebook | Analysis of a Super Store dataset where each row represents an order for an item and its quantity, sales, discount and profit. |
-| 🛌 [New York City Airbnb Data](https://github.com/diogo-costa-silva/eda-python-projects/tree/main/New%20York%20City%20Airbnb%20Data)  | Apr 2023 | Python (pandas; matplotlib), Jupyter Notebook | In this project, a thorough analysis of the “New York City Airbnb Open Data” dataset was conducted using Python. The objective was to understand the fundamental characteristics of the data and extract meaningful insights. |
-| ⚽️ [Premier League](https://github.com/katiehuangx/data-engineering/tree/main/Dog%20Adoption)  | Mar 2023 |Python, PostgreSQL, Jupyter Notebook | Designed, created, and deployed a custom data model for a dog adoption data set using Python and PostgreSQL on Jupyter Notebook. |
-| 🏍️ [MotoGP World Championships](https://github.com/katiehuangx/data-engineering/tree/main/Dog%20Adoption)  | Mar 2023 |Python, PostgreSQL, Jupyter Notebook | Designed, created, and deployed a custom data model for a dog adoption data set using Python and PostgreSQL on Jupyter Notebook. |
+## Docs
 
-<br>
-
-# Machine Learning Python Projects
-
-| Project Link | Completion Date | Tools | Project Description |
-|---|---|---|---|
-| 👁️ [Iris Dataset Classification](https://github.com/diogo-costa-silva/machine-learning-python-projects/tree/main/Iris%20Dataset%20Classification)  | May 2023 | Python, Jupyter Notebook | Developed and implemented an end-to-end ETL pipeline for processinsg NYC Trip Record data. The pipeline encompassed extracting raw data, performing data transformation using Python, applying fact and dimensional data modelling techniques, orchestrating the pipeline on Mage, and ultimately creating a dashboard using Looker Studio. |
-| ⚽️ [Project 2](https://github.com/katiehuangx/data-engineering/tree/main/Dog%20Adoption)  | Mar 2023 |Python (scikit-learn), Jupyter Notebook | A simple description |
-
-<br>
-
-#  Data Analysis using SQL
-
-| Project Link | Completion Date | Tools | Project Description |
-|---|---|---|---|
-| 🔪 [SQL Murder Mystery](https://github.com/diogo-costa-silva/sql-murder-mystery)  | Fev 2024 | Python, GCP (Storage, Compute Engine, BigQuery), Mage, Looker Studio | Developed and implemented an end-to-end ETL pipeline for processinsg NYC Trip Record data. The pipeline encompassed extracting raw data, performing data transformation using Python, applying fact and dimensional data modelling techniques, orchestrating the pipeline on Mage, and ultimately creating a dashboard using Looker Studio. |
-
-<br>
-
-#  Streamlit Apps
-
-| Project Link | Completion Date | Tools | Project Description |
-|---|---|---|---|
-| 👩‍💼 [Streamlit Sales Dashboard](https://github.com/diogo-costa-silva/streamlit-sales-dashboard)  | May 2023 | Python, GCP (Storage, Compute Engine, BigQuery), Mage, Looker Studio | Developed and implemented an end-to-end ETL pipeline for processinsg NYC Trip Record data. The pipeline encompassed extracting raw data, performing data transformation using Python, applying fact and dimensional data modelling techniques, orchestrating the pipeline on Mage, and ultimately creating a dashboard using Looker Studio. |
-
----
-
-> Made with 💪 & 💙 by Diogo Silva
+- **[SCHEMA.md](SCHEMA.md)** — canonical field reference (schema.org-aligned).
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — how to add/curate projects + taxonomy governance.
+- **[data/taxonomy.json](data/taxonomy.json)** — controlled vocabularies (category, status).

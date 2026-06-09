@@ -1,0 +1,322 @@
+{
+  "$schema": "./SCHEMA.md",
+  "generatedBy": "scripts/sync.mjs",
+  "owner": "diogo-costa-silva",
+  "count": 8,
+  "projects": [
+    {
+      "slug": "streamlit-sales-dashboard",
+      "title": "Sales Dashboard",
+      "tagline": "Interactive sales analytics dashboard",
+      "description": "Streamlit web app for exploring sales data with interactive filters and KPI visualizations.",
+      "highlight": null,
+      "category": "data-analytics",
+      "tags": [
+        "streamlit",
+        "python",
+        "pandas",
+        "data-science",
+        "data-visualization"
+      ],
+      "status": "active",
+      "featured": true,
+      "weight": 8,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/streamlit-sales-dashboard",
+        "demo": "https://sales-dashbooard.streamlit.app/",
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/streamlit-sales-dashboard",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "Python",
+        "stars": 0,
+        "license": null,
+        "createdAt": "2023-09-14T22:35:17Z",
+        "updatedAt": "2024-01-23T16:08:25Z",
+        "topics": [
+          "data-science",
+          "data-visualization",
+          "portfolio",
+          "python",
+          "streamlit"
+        ]
+      }
+    },
+    {
+      "slug": "ibm-hr-analytics",
+      "title": "IBM HR Analytics",
+      "tagline": "Exploratory analysis of HR attrition data",
+      "description": "Exploratory Data Analysis of the IBM HR Analytics dataset using R, from the Cegid Academy Data Science Program.",
+      "highlight": null,
+      "category": "data-analytics",
+      "tags": [
+        "r",
+        "eda",
+        "data-visualization",
+        "jupyter"
+      ],
+      "status": "active",
+      "featured": false,
+      "weight": 5,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/ibm-hr-analytics",
+        "demo": null,
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/ibm-hr-analytics",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "Jupyter Notebook",
+        "stars": 0,
+        "license": null,
+        "createdAt": "2026-03-22T13:14:11Z",
+        "updatedAt": "2026-03-22T14:15:46Z",
+        "topics": [
+          "portfolio"
+        ]
+      }
+    },
+    {
+      "slug": "motogp-analytics",
+      "title": "MotoGP Analytics",
+      "tagline": "Data analysis of MotoGP championships",
+      "description": "Notebooks exploring MotoGP World Championship data and rider/constructor performance.",
+      "highlight": null,
+      "category": "data-analytics",
+      "tags": [
+        "python",
+        "pandas",
+        "jupyter"
+      ],
+      "status": "active",
+      "featured": false,
+      "weight": 5,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/motogp-analytics",
+        "demo": null,
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/motogp-analytics",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "Jupyter Notebook",
+        "stars": 0,
+        "license": null,
+        "createdAt": "2025-09-10T14:50:18Z",
+        "updatedAt": "2025-09-10T14:52:22Z",
+        "topics": [
+          "portfolio"
+        ]
+      }
+    },
+    {
+      "slug": "sql-murder-mystery",
+      "title": "SQL Murder Mystery",
+      "tagline": "Solving a murder with SQL",
+      "description": "Solution to Knight Lab's SQL Murder Mystery: interrogating a relational database with SQL to find the culprit.",
+      "highlight": null,
+      "category": "data-engineering",
+      "tags": [
+        "sql",
+        "jupyter"
+      ],
+      "status": "active",
+      "featured": false,
+      "weight": 4,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/sql-murder-mystery",
+        "demo": null,
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/sql-murder-mystery",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "Jupyter Notebook",
+        "stars": 0,
+        "license": null,
+        "createdAt": "2024-02-20T18:10:45Z",
+        "updatedAt": "2024-02-21T13:50:16Z",
+        "topics": [
+          "portfolio"
+        ]
+      }
+    },
+    {
+      "slug": "doc-chatbot-multi-llm",
+      "title": "Multi-LLM Doc Chatbot",
+      "tagline": "Analyze TXT and PDF documents with multiple LLMs",
+      "description": "Chatbot that analyzes TXT and PDF documents using several Large Language Models, comparing their responses.",
+      "highlight": null,
+      "category": "ai-apps",
+      "tags": [
+        "llm",
+        "streamlit",
+        "python",
+        "text-analysis",
+        "genai-chatbot",
+        "streamlit-webapp",
+        "text-summarization"
+      ],
+      "status": "active",
+      "featured": true,
+      "weight": 8,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/doc-chatbot-multi-llm",
+        "demo": "https://huggingface.co/spaces/diogo-costa-silva/doc-chatbot-multi-llm",
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/doc-chatbot-multi-llm",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "Python",
+        "stars": 0,
+        "license": "MIT",
+        "createdAt": "2025-10-22T01:05:56Z",
+        "updatedAt": "2025-10-22T03:34:09Z",
+        "topics": [
+          "genai-chatbot",
+          "llm",
+          "portfolio",
+          "streamlit",
+          "streamlit-webapp",
+          "text-analysis",
+          "text-summarization"
+        ]
+      }
+    },
+    {
+      "slug": "streamlit-data-analysis-chatbot",
+      "title": "Data Analysis Chatbot",
+      "tagline": "Chat-driven data analysis and visualization",
+      "description": "Simple chatbot for data analysis and visualization using PandasAI and OpenAI.",
+      "highlight": null,
+      "category": "ai-apps",
+      "tags": [
+        "pandasai",
+        "openai",
+        "streamlit",
+        "python"
+      ],
+      "status": "active",
+      "featured": false,
+      "weight": 6,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/streamlit-data-analysis-chatbot",
+        "demo": null,
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/streamlit-data-analysis-chatbot",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "Python",
+        "stars": 0,
+        "license": "Apache-2.0",
+        "createdAt": "2024-04-15T14:00:03Z",
+        "updatedAt": "2024-04-15T14:21:59Z",
+        "topics": [
+          "portfolio"
+        ]
+      }
+    },
+    {
+      "slug": "moto-routes",
+      "title": "Moto Routes",
+      "tagline": "Motorcycle route discovery platform",
+      "description": "Platform to discover, save and share motorcycle routes, with interactive maps and community features.",
+      "highlight": null,
+      "category": "web",
+      "tags": [
+        "react",
+        "mapbox",
+        "supabase",
+        "typescript"
+      ],
+      "status": "active",
+      "featured": true,
+      "weight": 10,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/moto-routes",
+        "demo": "https://moto-routes.vercel.app",
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/moto-routes",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "TypeScript",
+        "stars": 0,
+        "license": "MIT",
+        "createdAt": "2026-02-26T10:44:29Z",
+        "updatedAt": "2026-03-02T22:55:42Z",
+        "topics": [
+          "portfolio"
+        ]
+      }
+    },
+    {
+      "slug": "scenic-routes-simple",
+      "title": "Scenic Routes",
+      "tagline": "Best scenic roads in Portugal",
+      "description": "MVP that maps the best scenic national roads in Portugal on an interactive map.",
+      "highlight": "20 national roads, interactive map",
+      "category": "web",
+      "tags": [
+        "react",
+        "leaflet",
+        "python"
+      ],
+      "status": "active",
+      "featured": true,
+      "weight": 9,
+      "visible": true,
+      "source": "github",
+      "links": {
+        "repo": "https://github.com/diogo-costa-silva/scenic-routes-simple",
+        "demo": "https://scenic-routes-simple.vercel.app",
+        "docs": null
+      },
+      "media": {
+        "image": "https://opengraph.githubassets.com/1/diogo-costa-silva/scenic-routes-simple",
+        "thumbnail": null
+      },
+      "repo": {
+        "language": "Python",
+        "stars": 0,
+        "license": null,
+        "createdAt": "2025-10-13T10:57:04Z",
+        "updatedAt": "2025-10-13T11:17:17Z",
+        "topics": [
+          "portfolio"
+        ]
+      }
+    }
+  ]
+}

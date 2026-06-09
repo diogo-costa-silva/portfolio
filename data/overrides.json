@@ -1,0 +1,80 @@
+{
+  "$comment": "The ONLY file you hand-edit. Keyed by slug (= repo name, or a custom slug for source:manual entries). Holds the human-authored fields; sync.mjs merges these over the GitHub-derived data. Any repo carrying the 'portfolio' topic but missing here is flagged as 'needs enrichment'. See SCHEMA.md for field semantics.",
+
+  "moto-routes": {
+    "title": "Moto Routes",
+    "tagline": "Motorcycle route discovery platform",
+    "description": "Platform to discover, save and share motorcycle routes, with interactive maps and community features.",
+    "category": "web",
+    "tags": ["react", "mapbox", "supabase", "typescript"],
+    "featured": true,
+    "weight": 10
+  },
+
+  "scenic-routes-simple": {
+    "title": "Scenic Routes",
+    "tagline": "Best scenic roads in Portugal",
+    "description": "MVP that maps the best scenic national roads in Portugal on an interactive map.",
+    "highlight": "20 national roads, interactive map",
+    "category": "web",
+    "tags": ["react", "leaflet", "python"],
+    "featured": true,
+    "weight": 9
+  },
+
+  "streamlit-sales-dashboard": {
+    "title": "Sales Dashboard",
+    "tagline": "Interactive sales analytics dashboard",
+    "description": "Streamlit web app for exploring sales data with interactive filters and KPI visualizations.",
+    "category": "data-analytics",
+    "tags": ["streamlit", "python", "pandas"],
+    "featured": true,
+    "weight": 8
+  },
+
+  "doc-chatbot-multi-llm": {
+    "title": "Multi-LLM Doc Chatbot",
+    "tagline": "Analyze TXT and PDF documents with multiple LLMs",
+    "description": "Chatbot that analyzes TXT and PDF documents using several Large Language Models, comparing their responses.",
+    "category": "ai-apps",
+    "tags": ["llm", "streamlit", "python", "text-analysis"],
+    "featured": true,
+    "weight": 8
+  },
+
+  "streamlit-data-analysis-chatbot": {
+    "title": "Data Analysis Chatbot",
+    "tagline": "Chat-driven data analysis and visualization",
+    "description": "Simple chatbot for data analysis and visualization using PandasAI and OpenAI.",
+    "category": "ai-apps",
+    "tags": ["pandasai", "openai", "streamlit", "python"],
+    "weight": 6
+  },
+
+  "ibm-hr-analytics": {
+    "title": "IBM HR Analytics",
+    "tagline": "Exploratory analysis of HR attrition data",
+    "description": "Exploratory Data Analysis of the IBM HR Analytics dataset using R, from the Cegid Academy Data Science Program.",
+    "category": "data-analytics",
+    "tags": ["r", "eda", "data-visualization"],
+    "weight": 5
+  },
+
+  "motogp-analytics": {
+    "title": "MotoGP Analytics",
+    "tagline": "Data analysis of MotoGP championships",
+    "description": "Notebooks exploring MotoGP World Championship data and rider/constructor performance.",
+    "category": "data-analytics",
+    "tags": ["python", "pandas", "jupyter"],
+    "weight": 5
+  },
+
+  "sql-murder-mystery": {
+    "title": "SQL Murder Mystery",
+    "tagline": "Solving a murder with SQL",
+    "description": "Solution to Knight Lab's SQL Murder Mystery: interrogating a relational database with SQL to find the culprit.",
+    "category": "data-engineering",
+    "tags": ["sql", "jupyter"],
+    "weight": 4
+  }
+}
