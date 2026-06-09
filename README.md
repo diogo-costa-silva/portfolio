@@ -56,4 +56,4 @@
 
 <sub>🔧 This showcase is generated automatically from my GitHub repos (topic `portfolio`)
 + curated metadata. It stays in sync with my website and profile.
-Maintainers: see **[docs/GUIDE.md](docs/GUIDE.md)** · **[docs/SCHEMA.md](docs/SCHEMA.md)** · **[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)**.</sub>
+Maintainers: see **[docs/GUIDE.md](docs/GUIDE.md)** · **[docs/SCHEMA.md](docs/SCHEMA.md)** · **[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)** · **[docs/DECISIONS.md](docs/DECISIONS.md)**.</sub>
