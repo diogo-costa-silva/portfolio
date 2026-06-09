@@ -1,0 +1,25 @@
+{
+  "$comment": "Closed controlled vocabularies for the canonical portfolio schema. Renderers read labels/order/icon/description from here — never hardcode. sync.mjs validates every project's category/status against these lists and fails loudly on unknown values. To add a category, see CONTRIBUTING.md governance rules (must be a recurring delivery type, >=3 expected projects).",
+  "categories": [
+    { "id": "data-analytics",   "label": "Data Analytics",     "order": 1, "icon": "bar-chart",   "description": "EDA, dashboards, BI, statistical analysis and data visualization." },
+    { "id": "machine-learning", "label": "Machine Learning",   "order": 2, "icon": "brain",       "description": "Modeling, prediction, training and ML pipelines." },
+    { "id": "data-engineering", "label": "Data Engineering",   "order": 3, "icon": "database",     "description": "ETL, SQL, databases, orchestration and data pipelines." },
+    { "id": "ai-apps",          "label": "AI Apps",            "order": 4, "icon": "sparkles",     "description": "LLM/GenAI applications, chatbots and agents." },
+    { "id": "web",              "label": "Web",                "order": 5, "icon": "globe",        "description": "Websites, frontend and full-stack web applications." },
+    { "id": "backend",          "label": "Backend",            "order": 6, "icon": "server",       "description": "APIs, services and microservices without a web UI." },
+    { "id": "devops",           "label": "DevOps / Infra",     "order": 7, "icon": "container",    "description": "IaC, CI/CD, containers, cloud and monitoring." },
+    { "id": "automation",       "label": "Automation",         "order": 8, "icon": "robot",        "description": "Scripts, bots, tooling and homelab automation." },
+    { "id": "mobile",           "label": "Mobile",             "order": 9, "icon": "smartphone",   "description": "Native and cross-platform mobile apps. (reserved — no projects yet)" },
+    { "id": "library",          "label": "Library / Tooling",  "order": 10, "icon": "package",     "description": "Reusable packages, templates and developer tooling. (reserved)" }
+  ],
+  "status": [
+    { "id": "wip",       "label": "WIP",       "order": 1, "description": "Incomplete, not yet usable." },
+    { "id": "active",    "label": "Active",    "order": 2, "description": "Usable and still evolving." },
+    { "id": "completed", "label": "Completed", "order": 3, "description": "Usable, stable, finished." },
+    { "id": "archived",  "label": "Archived",  "order": 4, "description": "Retired/frozen (auto-set when the GitHub repo is archived)." }
+  ],
+  "categoryPrecedence": [
+    "ai-apps", "machine-learning", "data-engineering", "data-analytics",
+    "backend", "web", "devops", "automation", "mobile", "library"
+  ]
+}

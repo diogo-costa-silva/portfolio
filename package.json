@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-hub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Canonical, website-agnostic source of truth for Diogo's projects. Generated from GitHub repos (topic: portfolio) + hand-authored overrides.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "sync": "node tools/sync.mjs",
+    "candidates": "node tools/sync.mjs --candidates",
+    "check": "node tools/sync.mjs --check",
+    "tags": "node tools/sync.mjs --tags",
+    "build:v1": "node tools/adapter-v1-vanilla.mjs",
+    "build:readme": "node tools/adapter-portfolio-readme.mjs",
+    "build:profile": "node tools/adapter-profile-readme.mjs"
+  }
+}

@@ -1,0 +1,47 @@
+name: Sync portfolio
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"        # weekly, Monday 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Regenerate canonical projects.json
+        env:
+          # Default token reads public repos; set PORTFOLIO_PAT to also see private/topics reliably.
+          GITHUB_TOKEN: ${{ secrets.PORTFOLIO_PAT || secrets.GITHUB_TOKEN }}
+        run: |
+          npm run sync           # canonical data/projects.json
+          npm run build:readme   # regenerate this repo's README showcase from it
+
+      - name: Open PR if anything changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet -- data/projects.json README.md; then
+            echo "No changes."
+            exit 0
+          fi
+          branch="sync/portfolio-$(date -u +%Y%m%d-%H%M)"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add data/projects.json README.md
+          git commit -m "chore: sync portfolio data and showcase"
+          git push origin "$branch"
+          gh pr create --fill \
+            --title "chore: sync portfolio data and showcase" \
+            --body "Automated regeneration of \`data/projects.json\` and the README showcase from GitHub repos + overrides. Review before merge."
