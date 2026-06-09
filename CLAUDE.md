@@ -5,7 +5,8 @@ One dataset feeds the GitHub profile README, this repo's README vitrine, and the
 website — so they never drift.
 
 ## Golden rules
-- ✅ Edit **only** two things: **GitHub repo topics** and **`data/overrides.json`**.
+- ✅ Edit **only**: **GitHub repo topics**, **`data/overrides.json`** (projects), and
+  **`data/roadmap.json`** (unstarted ideas — the two hand-edited files).
 - 🚫 Never hand-edit `data/projects.json`, the generated block between the
   `<!-- PORTFOLIO -->` markers in `README.md`, or the `diogo-costa-silva.github.io`
   repo (it's overwritten on every deploy).
@@ -24,6 +25,8 @@ npm run build:portfolio-readme    # rebuild this repo's README vitrine
 The weekly Action also does this and opens a PR. To publish to the other surfaces:
 `npm run build:webfolio-v1 -- <site>/data/projects.json` and
 `node tools/adapter-profile-readme.mjs --write <profile-README>`.
+
+Unstarted **ideas** live in `data/roadmap.json` (no repo yet) — its own flow in docs/GUIDE.md.
 
 ## Docs
 - **docs/GUIDE.md** — every workflow + command (start here).

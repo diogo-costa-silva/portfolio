@@ -57,6 +57,40 @@ A new category is justified **only** when it is a recurring *delivery type* with
 `tag`. This keeps the taxonomy small and stable. Edit `data/taxonomy.json`
 (`categories` + `categoryPrecedence`) and document the addition here.
 
+## Roadmap curation
+
+`data/roadmap.json` is hand-authored — public ideas with no repo yet (schema in
+`SCHEMA.md`). Curate it tightly:
+
+- **Keep it short** — 3–6 items. A roadmap of 20 ideas signals nothing; a roadmap of
+  four signals judgment.
+- **Frame by the `problem`**, not a cool name. Every item earns its place by the pain
+  it solves; `title` is secondary.
+- **Never attach a dead link.** `link` is for an issue/discussion that *describes* the
+  idea — never a demo/repo URL that 404s. No link is better than a broken one.
+- **Use horizons, not dates.** Reach for `horizon` (`next`/`later`/`someday`); use
+  `target` only as a soft, literal hint (e.g. `"Q3 2026"`), never a hard deadline.
+- **Feature sparingly.** Mark only **1–3** items `featured` — those surface on the
+  profile README "Currently exploring" line.
+
+### Graduating an idea
+
+When an idea becomes real (you start building it), graduate it off the roadmap:
+
+1. Create the repo **named exactly the `slug`**.
+2. `gh repo edit diogo-costa-silva/<slug> --add-topic portfolio` and add its
+   `overrides.json` entry (see "Add a project" above).
+3. Remove the item from `data/roadmap.json`.
+
+`npm run sync` **warns** when a roadmap `slug` matches a live `portfolio` repo — that
+warning is your reminder to finish the move.
+
+### Governance: roadmap vocabularies
+
+`roadmapStatus` and `horizon` are controlled vocabularies in `taxonomy.json`, kept
+separate from the project `status` enum. Treat them like `categories`: add a value
+**only** when an existing one genuinely can't carry the meaning, and document it here.
+
 ## Surfaces (renderers)
 
 The same canonical data feeds every surface via adapters — never duplicate it:

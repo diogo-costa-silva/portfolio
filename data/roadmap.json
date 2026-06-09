@@ -1,0 +1,36 @@
+{
+  "$comment": "Public roadmap — projects/ideas Diogo plans to build but has NOT started yet (no GitHub repo). The SECOND hand-edited file (alongside overrides.json); see docs/DECISIONS.md#D11. Pure curation: there is no GitHub source to derive from, so this file IS the canonical source — validated by `npm run sync`/`npm run check`, never generated. Rules: keep it short (3-6 items), frame each by the PROBLEM it solves, never give an idea a dead repo/demo link (use `link` only for an issue/discussion). slug must be stable and must NOT collide with a live `portfolio` repo (sync warns when an idea has graduated). category -> taxonomy.categories; status -> taxonomy.roadmapStatus; horizon -> taxonomy.horizon. The two items below are SEED EXAMPLES — replace them with your real ideas.",
+
+  "items": [
+    {
+      "slug": "ride-weather-planner",
+      "title": "Ride Weather Planner",
+      "problem": "Planning a motorcycle ride means checking weather for the whole route over time, not a single city — no tool maps a forecast onto a multi-stage journey.",
+      "why": "Scratches my own itch and extends the Moto Routes work into trip-time decisions.",
+      "category": "ai-apps",
+      "tags": ["react", "weather-api", "mapbox"],
+      "status": "idea",
+      "horizon": "later",
+      "target": null,
+      "link": null,
+      "weight": 10,
+      "featured": true,
+      "visible": true
+    },
+    {
+      "slug": "portfolio-metrics",
+      "title": "Portfolio Metrics",
+      "problem": "I have no single view of how my public projects perform (stars, traffic, referrers) over time — the data is scattered across GitHub insights pages.",
+      "why": "A small data-engineering pipeline + dashboard that dogfoods this portfolio hub.",
+      "category": "data-engineering",
+      "tags": ["python", "duckdb", "github-api"],
+      "status": "planned",
+      "horizon": "next",
+      "target": "Q3 2026",
+      "link": null,
+      "weight": 8,
+      "featured": false,
+      "visible": true
+    }
+  ]
+}

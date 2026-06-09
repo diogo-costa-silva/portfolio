@@ -18,6 +18,16 @@
     { "id": "completed", "label": "Completed", "order": 3, "description": "Usable, stable, finished." },
     { "id": "archived",  "label": "Archived",  "order": 4, "description": "Retired/frozen (auto-set when the GitHub repo is archived)." }
   ],
+  "roadmapStatus": [
+    { "id": "idea",     "label": "Idea",     "order": 1, "description": "A concept I want to build — not yet scoped." },
+    { "id": "planned",  "label": "Planned",  "order": 2, "description": "Scoped and queued — repo not created yet." },
+    { "id": "building", "label": "Building", "order": 3, "description": "Actively starting — repo about to exist or just created." }
+  ],
+  "horizon": [
+    { "id": "next",    "label": "Next",    "order": 1, "description": "Immediate focus after current work." },
+    { "id": "later",   "label": "Later",   "order": 2, "description": "On the radar, after Next." },
+    { "id": "someday", "label": "Someday", "order": 3, "description": "Low-commitment maybe — no timeline." }
+  ],
   "categoryPrecedence": [
     "ai-apps", "machine-learning", "data-engineering", "data-analytics",
     "backend", "web", "devops", "automation", "mobile", "library"

@@ -63,6 +63,21 @@ System docs (GUIDE/SCHEMA/CONTRIBUTING/DECISIONS) live in `docs/`; the root READ
 the generated showcase. **Why:** the `portfolio` repo is pinned and is the profile's
 "All projects" target — its README must be a vitrine for recruiters, not a system doc.
 
+### D11 — Roadmap (unstarted ideas) is a separate hand-authored canonical file, not a project status
+Ideas I plan to build but haven't started (no repo yet) live in `data/roadmap.json`, a
+second hand-edited file alongside `overrides.json`. It is itself the source of truth —
+there's no GitHub repo to sync from, so the file is authored, not generated; `sync`/`check`
+validate it but never overwrite it. This is the deliberate exception to D5 and D6. **Why:**
+building a full input→output pipeline for a 6-item hand list is YAGNI when the idea *is* the
+input. `roadmapStatus` (idea/planned/building) and `horizon` (next/later/someday) are
+separate vocabs in `taxonomy.json`, kept apart from the project `status` enum so a roadmap
+state can never leak into a real project. `projects.json` is untouched — ideas never enter
+the canonical list; each surface opts in to rendering roadmap (README vitrine section,
+profile "Currently exploring" line, a top-level `roadmap` array for the live site), so there
+is zero leak. **Graduation:** when an idea ships you create the repo (named = the idea's slug),
+add the `portfolio` topic + an overrides entry; `sync` then warns that a live repo matches a
+roadmap slug → you delete the item. The stable slug gives one continuous idea→built identity.
+
 ---
 
 ## System map
@@ -73,6 +88,7 @@ GitHub repos (topic: portfolio) + data/overrides.json
                                    └── tools/adapter-* ──▶ README vitrine
                                                         ──▶ profile README featured
                                                         ──▶ webfolio-v1-vanilla (live site)
+data/roadmap.json (authored, canonical) ──▶ validated by sync, never generated; each surface opts in
 ```
 
 - **Live deploy chain:** `webfolio-v1-vanilla` → its `deploy-from-source.yml` → copies

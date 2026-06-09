@@ -135,6 +135,48 @@ The `slug` = repo name. If you rename the repo on GitHub, rename its key in
 `overrides.json` to match, or the override silently stops applying. `npm run check`
 will flag the orphaned-by-rename repo as *needs enrichment*.
 
+### 4i. Roadmap / ideas (things you plan to build but haven't started)
+A **public wishlist** of ideas with no repo yet. It lives in `data/roadmap.json` — the
+*second* hand-edited file beside `overrides.json` — and is **authored-and-canonical**
+(nothing is derived from GitHub, it is never regenerated). Shape:
+`{ "$comment": "...", "items": [ { ... } ] }`.
+
+Required per item: `slug` (`^[a-z0-9][a-z0-9-]*$`, stable, must not collide with a live
+repo), `title`, `problem` (the pain it solves), `category` (same vocab as projects),
+`status` (`idea`\|`planned`\|`building`). Optional: `why`, `tags[]` (intended stack),
+`horizon` (`next`\|`later`\|`someday`), `target` (e.g. `"Q3 2026"`), `link` (an
+issue/discussion URL — **never** a demo/repo that 404s), `weight` (default `0`),
+`featured` (default `false` — surfaces on the profile README), `visible` (default `true`).
+Full table: [SCHEMA.md](SCHEMA.md#roadmap-items-dataroadmapjson).
+
+**Add an idea**
+```bash
+# 1. add an item to data/roadmap.json's "items" array:
+#    { "slug": "crime-map", "title": "Crime Map", "category": "web", "status": "idea",
+#      "problem": "No quick way to see where crime clusters in my city.",
+#      "horizon": "next", "tags": ["react","leaflet"] }
+npm run check                     # validates slug/vocab + required fields (writes nothing)
+npm run build:portfolio-readme    # renders the 🔭 Roadmap section in this repo's README
+```
+
+**Edit an idea** — change its item in `data/roadmap.json` → `npm run check` → rebuild.
+
+**Remove an idea** — delete the item, or set `"visible": false` to keep it in the file
+but off every surface → `npm run check` → rebuild.
+
+**Graduate an idea → real project** (same slug = continuous idea→built identity):
+```bash
+# 1. create the repo named EXACTLY the idea's slug, then:
+gh repo edit diogo-costa-silva/<slug> --add-topic portfolio
+# 2. add a "<slug>" entry to data/overrides.json (see §4a)
+npm run sync                      # ⚠ warns: a live repo matches a roadmap slug
+# 3. remove that item from data/roadmap.json (it's now a real project)
+```
+Render targets: `build:portfolio-readme` (the **🔭 Roadmap — What's next** section,
+grouped by horizon with a status badge), `build:profile-readme` (a *Currently
+exploring: …* line from `featured` ideas), and `build:webfolio-v1` (emits a separate
+top-level `roadmap` array into the site JSON).
+
 ---
 
 ## 5. Publishing workflows
@@ -246,6 +288,7 @@ node tools/adapter-profile-readme.mjs --write ~/Projects/diogo-costa-silva/READM
 | Path | Role | Edit by hand? |
 |---|---|---|
 | `data/overrides.json` | Authored enrichment/curation | ✅ yes (the main one) |
+| `data/roadmap.json` | Authored public wishlist of unstarted ideas (§4i) | ✅ yes (authored-canonical) |
 | `data/taxonomy.json` | Controlled vocabularies | ✅ rarely (governance) |
 | `data/projects.json` | Canonical generated dataset | 🚫 never |
 | `tools/sync.mjs` | Merge engine (+ `TAG_ALIASES`) | ⚙ only for tag aliases/logic |

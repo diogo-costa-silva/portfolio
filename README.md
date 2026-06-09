@@ -50,6 +50,22 @@
 | **Moto Routes** | Curated motorcycle routes from real GPS data | react, typescript, supabase, mapbox | [Code](https://github.com/diogo-costa-silva/moto-routes) · [Demo](https://moto-routes.vercel.app) |
 | **Scenic Routes** | The 20 best scenic driving roads in Portugal | react, leaflet, python, geopandas | [Code](https://github.com/diogo-costa-silva/scenic-routes-simple) · [Demo](https://scenic-routes-simple.vercel.app) |
 
+## 🔭 Roadmap — What's next
+
+_Ideas I plan to build. Not started yet, so there's no code to show — just the problems I want to solve._
+
+### Next
+
+| Idea | Problem it solves | Tech | Status |
+|---|---|---|---|
+| **Portfolio Metrics** | I have no single view of how my public projects perform (stars, traffic, referrers) over time — the data is scattered across GitHub insights pages. | python, duckdb, github-api | 📋 planned _(Q3 2026)_ |
+
+### Later
+
+| Idea | Problem it solves | Tech | Status |
+|---|---|---|---|
+| **Ride Weather Planner** | Planning a motorcycle ride means checking weather for the whole route over time, not a single city — no tool maps a forecast onto a multi-stage journey. | react, weather-api, mapbox | 💡 idea |
+
 <!-- PORTFOLIO:END -->
 
 ---
