@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.3.0] - 2026-06-09
+
+Added a public **roadmap / wishlist** of ideas Diogo plans to build but hasn't
+started yet (no repo).
+
+### Added
+- `data/roadmap.json` — second hand-edited, authored-and-canonical file (beside
+  `overrides.json`): public ideas with `slug`/`title`/`problem`/`category`/`status`
+  + optional `why`/`tags`/`horizon`/`target`/`link`/`weight`/`featured`/`visible`.
+- `roadmapStatus` (`idea`/`planned`/`building`) and `horizon` (`next`/`later`/`someday`)
+  vocabularies in `taxonomy.json`, kept separate from the project `status` enum.
+- Roadmap validation in `npm run check`/`npm run sync` (slug regex, no dup slugs,
+  required title/problem/category, vocab checks) + a **graduation warning** when a
+  roadmap slug matches a live `portfolio` repo.
+- `🔭 Roadmap — What's next` section in this repo's README (`build:portfolio-readme`),
+  grouped by horizon with a status badge and no dead links.
+- *Currently exploring: …* line on the profile README from `featured` ideas
+  (`build:profile-readme`).
+- Separate top-level `roadmap` array emitted into the live-site JSON
+  (`build:webfolio-v1`), rendered as a follow-up by `webfolio-v1-vanilla`.
+
+### Changed
+- `docs/GUIDE.md` §4i + `docs/SCHEMA.md` document the roadmap workflow, fields, and
+  the idea→project graduation flow (same slug = continuous identity).
+
 ## [1.2.0] - 2026-06-09
 
 ### Added

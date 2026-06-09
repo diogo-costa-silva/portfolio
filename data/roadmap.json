@@ -1,0 +1,51 @@
+{
+  "$comment": "Public roadmap — projects/ideas Diogo plans to build but has NOT started yet (no GitHub repo). The SECOND hand-edited file (alongside overrides.json); see docs/DECISIONS.md#D11. Pure curation: there is no GitHub source to derive from, so this file IS the canonical source — validated by `npm run sync`/`npm run check`, never generated. Rules: keep it short (3-6 items), frame each by the PROBLEM it solves, never give an idea a dead repo/demo link (use `link` only for an issue/discussion). slug must be stable and must NOT collide with a live `portfolio` repo (sync warns when an idea has graduated). category -> taxonomy.categories; status -> taxonomy.roadmapStatus; horizon -> taxonomy.horizon. The two items below are SEED EXAMPLES — replace them with your real ideas.",
+
+  "items": [
+    {
+      "slug": "n2-passport",
+      "title": "N2 Digital Passport",
+      "problem": "The physical Nacional 2 passport is easily damaged or lost, lacks real-time GPS stamp verification, and cannot showcase local recommendations dynamically.",
+      "why": "A modern mobile experience to replace the physical N2 passport, letting roadtrippers log stops, view local attractions, and share their journey.",
+      "category": "mobile",
+      "tags": ["react-native", "expo", "mapbox", "supabase"],
+      "status": "planned",
+      "horizon": "next",
+      "target": "Q3 2026",
+      "link": null,
+      "weight": 10,
+      "featured": true,
+      "visible": true
+    },
+    {
+      "slug": "agroturismo-mirandela",
+      "title": "Agroturismo Mirandela Website",
+      "problem": "Trás-os-Montes agrotourism properties lack high-quality, modern booking websites that effectively convey local culture and traditional vibes while enabling direct payment.",
+      "why": "A fast, SEO-optimized website showcasing a Mirandela estate, regional traditions, and integrating direct bookings/payments.",
+      "category": "web",
+      "tags": ["nextjs", "react", "tailwind", "stripe", "seo"],
+      "status": "planned",
+      "horizon": "next",
+      "target": "Q4 2026",
+      "link": null,
+      "weight": 9,
+      "featured": true,
+      "visible": true
+    },
+    {
+      "slug": "minigolf-tracker",
+      "title": "Mini Golf Scorecard & Tracker",
+      "problem": "Tracking scores during mini-golf matches with friends is tedious on paper, and there is no unified profile to keep a history of visited courses.",
+      "why": "A gamified mobile application for logging scores, tracking visited courses, and offering future integrations/deals with local venues.",
+      "category": "mobile",
+      "tags": ["react-native", "expo", "supabase", "gamification"],
+      "status": "idea",
+      "horizon": "later",
+      "target": null,
+      "link": null,
+      "weight": 8,
+      "featured": false,
+      "visible": true
+    }
+  ]
+}

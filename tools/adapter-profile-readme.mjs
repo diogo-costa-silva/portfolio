@@ -5,14 +5,16 @@
 //   node tools/adapter-profile-readme.mjs                 # print to stdout
 //   node tools/adapter-profile-readme.mjs --write <README.md>
 
-import { loadCanon, renderFeatured, injectMarkers } from "./lib.mjs";
+import { loadCanon, loadRoadmap, renderFeatured, injectMarkers } from "./lib.mjs";
 
 const canon = loadCanon();
 const featured = canon.projects
   .filter((p) => p.visible && p.featured)
   .sort((a, b) => b.weight - a.weight);
+const exploring = loadRoadmap().filter((it) => it.featured);
 
 const md = renderFeatured(featured) +
+  (exploring.length ? `\n🔭 **Currently exploring:** ${exploring.map((it) => it.title).join(" · ")}\n` : "") +
   `\n📂 **[All projects →](https://github.com/${canon.owner}/portfolio)** · ` +
   `🌐 **[Live portfolio →](https://${canon.owner}.github.io)**\n`;
 

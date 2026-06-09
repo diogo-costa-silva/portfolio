@@ -50,6 +50,23 @@
 | **Moto Routes** | Curated motorcycle routes from real GPS data | react, typescript, supabase, mapbox | [Code](https://github.com/diogo-costa-silva/moto-routes) · [Demo](https://moto-routes.vercel.app) |
 | **Scenic Routes** | The 20 best scenic driving roads in Portugal | react, leaflet, python, geopandas | [Code](https://github.com/diogo-costa-silva/scenic-routes-simple) · [Demo](https://scenic-routes-simple.vercel.app) |
 
+## 🔭 Roadmap — What's next
+
+_Ideas I plan to build. Not started yet, so there's no code to show — just the problems I want to solve._
+
+### Next
+
+| Idea | Problem it solves | Tech | Status |
+|---|---|---|---|
+| **N2 Digital Passport** | The physical Nacional 2 passport is easily damaged or lost, lacks real-time GPS stamp verification, and cannot showcase local recommendations dynamically. | react-native, expo, mapbox, supabase | 📋 planned _(Q3 2026)_ |
+| **Agroturismo Mirandela Website** | Trás-os-Montes agrotourism properties lack high-quality, modern booking websites that effectively convey local culture and traditional vibes while enabling direct payment. | nextjs, react, tailwind, stripe | 📋 planned _(Q4 2026)_ |
+
+### Later
+
+| Idea | Problem it solves | Tech | Status |
+|---|---|---|---|
+| **Mini Golf Scorecard & Tracker** | Tracking scores during mini-golf matches with friends is tedious on paper, and there is no unified profile to keep a history of visited courses. | react-native, expo, supabase, gamification | 💡 idea |
+
 <!-- PORTFOLIO:END -->
 
 ---

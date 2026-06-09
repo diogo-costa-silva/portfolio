@@ -178,7 +178,30 @@ for (const [slug, ov] of Object.entries(overrides)) {
   });
 }
 
-if (hardErrors) die(`${hardErrors} blocking error(s) — fix overrides/taxonomy and re-run.`);
+// ---------- validate roadmap (data/roadmap.json — hand-authored ideas, no repo) ----------
+let roadmap = { items: [] };
+try { roadmap = read("data/roadmap.json"); } catch { /* optional file */ }
+const ROADMAP_STATUSES = new Set((taxonomy.roadmapStatus || []).map((s) => s.id));
+const HORIZONS = new Set((taxonomy.horizon || []).map((h) => h.id));
+const repoNames = new Set(repos.map((r) => r.name));
+const seenSlugs = new Set();
+for (const it of roadmap.items || []) {
+  const errs = [];
+  if (!SLUG_RE.test(it.slug || "")) errs.push(`invalid slug "${it.slug}"`);
+  if (seenSlugs.has(it.slug)) errs.push(`duplicate slug "${it.slug}"`);
+  seenSlugs.add(it.slug);
+  if (!it.title) errs.push("missing title");
+  if (!it.problem) errs.push("missing problem");
+  if (!it.category) errs.push("missing category");
+  else if (!CATEGORIES.has(it.category)) errs.push(`unknown category "${it.category}"`);
+  if (!ROADMAP_STATUSES.has(it.status)) errs.push(`unknown roadmapStatus "${it.status}"`);
+  if (it.horizon && !HORIZONS.has(it.horizon)) errs.push(`unknown horizon "${it.horizon}"`);
+  if (errs.length) { hardErrors++; console.error(`✖  roadmap/${it.slug}: ${errs.join("; ")}`); }
+  // graduation guard: an idea whose slug now exists as a real repo should leave the roadmap
+  if (repoNames.has(it.slug)) warn(`roadmap/${it.slug}: a live repo with this name exists — graduate it (remove from roadmap.json, add to overrides.json).`);
+}
+
+if (hardErrors) die(`${hardErrors} blocking error(s) — fix overrides/taxonomy/roadmap and re-run.`);
 
 projects.sort((a, b) =>
   (catOrder.get(a.category) ?? 99) - (catOrder.get(b.category) ?? 99) ||

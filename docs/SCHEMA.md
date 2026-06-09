@@ -61,3 +61,49 @@ reads this same file. Field names align with [schema.org](https://schema.org)
 
 See `data/taxonomy.json`. To change them, follow the governance rules in
 `CONTRIBUTING.md`.
+
+## Roadmap items (`data/roadmap.json`)
+
+`data/roadmap.json` holds **public ideas** Diogo plans to build but hasn't started —
+there is no repo yet. Unlike `projects.json`, this file is **authored-and-canonical**:
+nothing is derived from GitHub, every field is hand-written. It is opt-in to render
+(surfaces choose to show it) and **never leaks into `projects.json`** — the two are
+separate datasets. Shape: `{ "$comment": …, "items": [ {item} ] }`. Items are
+intentionally **not** bound to schema.org (a roadmap idea isn't a published work).
+
+### Field reference
+
+| Field | Type | Required | Allowed / format |
+|---|---|---|---|
+| `slug` | string | ✅ | `^[a-z0-9][a-z0-9-]*$`; **stable**; must not collide with a live `portfolio` repo (sync warns when it does = graduation signal) |
+| `title` | string | ✅ | — |
+| `problem` | string | ✅ | the pain it solves — the headline field that signals judgment |
+| `why` | string\|null | — | motivation / who it's for, one line |
+| `category` | enum | ✅ | one of `taxonomy.json#categories` (same vocab as projects) |
+| `tags` | string[] | — | intended stack, free-form, lowercase |
+| `status` | enum | ✅ | one of `taxonomy.json#roadmapStatus`: `idea` \| `planned` \| `building` |
+| `horizon` | enum\|null | — | one of `taxonomy.json#horizon`: `next` \| `later` \| `someday` |
+| `target` | string\|null | — | soft target shown literally, e.g. `"Q3 2026"` — never a hard deadline |
+| `link` | string\|null | — | URL to an issue/discussion describing it; **never** a demo/repo link that 404s |
+| `weight` | number | — | sort within section (desc); default `0` |
+| `featured` | boolean | — | surfaces the idea on the profile README "Currently exploring" line; default `false` |
+| `visible` | boolean | — | kill switch; default `true` |
+
+### Validation (enforced by `sync.mjs`)
+
+Runs on `npm run check` and `npm run sync`. Each is a **blocking error**:
+
+- `slug` must match the regex; no duplicate slugs across items.
+- `title`, `problem`, `category` are required.
+- `category` must exist in `taxonomy.json#categories`.
+- `status` must exist in `taxonomy.json#roadmapStatus`.
+- `horizon` (if set) must exist in `taxonomy.json#horizon`.
+
+A roadmap `slug` that matches a live `portfolio` repo → **non-blocking warning**
+(time to graduate it — see `CONTRIBUTING.md`).
+
+### Controlled vocabularies
+
+`roadmapStatus` (`idea`/`planned`/`building`) and `horizon` (`next`/`later`/`someday`)
+are **new** vocabularies in `taxonomy.json`, each `{id,label,order,description}`. They
+are kept separate from the project `status` enum — a roadmap idea is not a project.
