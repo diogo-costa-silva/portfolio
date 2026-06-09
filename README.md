@@ -58,13 +58,14 @@ _Ideas I plan to build. Not started yet, so there's no code to show — just the
 
 | Idea | Problem it solves | Tech | Status |
 |---|---|---|---|
-| **Portfolio Metrics** | I have no single view of how my public projects perform (stars, traffic, referrers) over time — the data is scattered across GitHub insights pages. | python, duckdb, github-api | 📋 planned _(Q3 2026)_ |
+| **N2 Digital Passport** | The physical Nacional 2 passport is easily damaged or lost, lacks real-time GPS stamp verification, and cannot showcase local recommendations dynamically. | react-native, expo, mapbox, supabase | 📋 planned _(Q3 2026)_ |
+| **Agroturismo Mirandela Website** | Trás-os-Montes agrotourism properties lack high-quality, modern booking websites that effectively convey local culture and traditional vibes while enabling direct payment. | nextjs, react, tailwind, stripe | 📋 planned _(Q4 2026)_ |
 
 ### Later
 
 | Idea | Problem it solves | Tech | Status |
 |---|---|---|---|
-| **Ride Weather Planner** | Planning a motorcycle ride means checking weather for the whole route over time, not a single city — no tool maps a forecast onto a multi-stage journey. | react, weather-api, mapbox | 💡 idea |
+| **Mini Golf Scorecard & Tracker** | Tracking scores during mini-golf matches with friends is tedious on paper, and there is no unified profile to keep a history of visited courses. | react-native, expo, supabase, gamification | 💡 idea |
 
 <!-- PORTFOLIO:END -->
 
