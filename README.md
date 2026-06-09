@@ -28,7 +28,7 @@
 |---|---|---|---|
 | **IBM HR Analytics** | What drives employee attrition? | r, eda, data-visualization, jupyter | [Code](https://github.com/diogo-costa-silva/ibm-hr-analytics) |
 | **MotoGP Analytics** | Exploring 70+ years of MotoGP data (1949–2022) | python, pandas, jupyter | [Code](https://github.com/diogo-costa-silva/motogp-analytics) |
-| **Sales Dashboard** | Interactive sales analytics dashboard | streamlit, python, pandas, data-science | [Code](https://github.com/diogo-costa-silva/streamlit-sales-dashboard) · [Demo](https://sales-dashbooard.streamlit.app/) |
+| **Sales Dashboard** | Interactive sales analytics dashboard | streamlit, python, pandas, data-science | [Code](https://github.com/diogo-costa-silva/streamlit-sales-dashboard) |
 
 ### Data Engineering
 

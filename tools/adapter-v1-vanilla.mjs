@@ -24,8 +24,8 @@ const projects = canon.projects
     status: p.status,
     difficulty: "—",                 // not modeled canonically; left neutral
     featured: p.featured,
-    github: p.links.repo,
-    demo: p.links.demo,
+    github: p.links.repo || "#",   // site uses "#" as the "no link" sentinel
+    demo: p.links.demo || "#",
     image: p.media.image,
     isReal: p.source === "github",
   }));

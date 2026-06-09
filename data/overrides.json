@@ -57,9 +57,10 @@
   "streamlit-sales-dashboard": {
     "title": "Sales Dashboard",
     "tagline": "Interactive sales analytics dashboard",
-    "description": "Streamlit dashboard exploring sales KPIs with interactive filters and charts. Live on Streamlit Cloud.",
+    "description": "Streamlit dashboard exploring sales KPIs with interactive filters and charts.",
     "category": "data-analytics",
     "tags": ["streamlit", "python", "pandas"],
+    "demo": false,
     "featured": false,
     "weight": 6
   },

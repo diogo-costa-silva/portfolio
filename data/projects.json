@@ -83,7 +83,7 @@
       "slug": "streamlit-sales-dashboard",
       "title": "Sales Dashboard",
       "tagline": "Interactive sales analytics dashboard",
-      "description": "Streamlit dashboard exploring sales KPIs with interactive filters and charts. Live on Streamlit Cloud.",
+      "description": "Streamlit dashboard exploring sales KPIs with interactive filters and charts.",
       "highlight": null,
       "category": "data-analytics",
       "tags": [
@@ -100,7 +100,7 @@
       "source": "github",
       "links": {
         "repo": "https://github.com/diogo-costa-silva/streamlit-sales-dashboard",
-        "demo": "https://sales-dashbooard.streamlit.app/",
+        "demo": null,
         "docs": null
       },
       "media": {
