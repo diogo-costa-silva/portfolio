@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0] - 2026-06-09
+
+### Added
+- `docs/DECISIONS.md` — decision record (the *why* behind the architecture).
+
+### Changed
+- Refined project overrides (taglines, tags, 5 featured) from the real repo READMEs.
+- Canonicalized tag synonyms (`streamlit-webapp`→`streamlit`, `genai-chatbot`→`chatbot`).
+
 ## [1.1.0] - 2026-06-09
 
 Made the `portfolio` repo a recruiter-facing GitHub vitrine, generated from the same
