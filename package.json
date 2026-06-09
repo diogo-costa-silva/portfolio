@@ -10,8 +10,8 @@
     "candidates": "node tools/sync.mjs --candidates",
     "check": "node tools/sync.mjs --check",
     "tags": "node tools/sync.mjs --tags",
-    "build:v1": "node tools/adapter-v1-vanilla.mjs",
-    "build:readme": "node tools/adapter-portfolio-readme.mjs",
-    "build:profile": "node tools/adapter-profile-readme.mjs"
+    "build:webfolio-v1": "node tools/adapter-v1-vanilla.mjs",
+    "build:portfolio-readme": "node tools/adapter-portfolio-readme.mjs",
+    "build:profile-readme": "node tools/adapter-profile-readme.mjs"
   }
 }

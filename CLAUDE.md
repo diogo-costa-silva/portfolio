@@ -19,10 +19,10 @@ website — so they never drift.
 # EDIT:   change that entry in data/overrides.json
 # REMOVE: set "visible": false  OR  gh repo edit … --remove-topic portfolio
 npm run sync            # rebuild data/projects.json (+ npm run check to validate)
-npm run build:readme    # rebuild this repo's README vitrine
+npm run build:portfolio-readme    # rebuild this repo's README vitrine
 ```
 The weekly Action also does this and opens a PR. To publish to the other surfaces:
-`npm run build:v1 -- <site>/data/projects.json` and
+`npm run build:webfolio-v1 -- <site>/data/projects.json` and
 `node tools/adapter-profile-readme.mjs --write <profile-README>`.
 
 ## Docs

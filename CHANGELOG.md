@@ -6,6 +6,8 @@
 - `docs/DECISIONS.md` — decision record (the *why* behind the architecture).
 
 ### Changed
+- Renamed `build:*` scripts to name their target: `build:v1`→`build:webfolio-v1`,
+  `build:readme`→`build:portfolio-readme`, `build:profile`→`build:profile-readme`.
 - Refined project overrides (taglines, tags, 5 featured) from the real repo READMEs.
 - Canonicalized tag synonyms (`streamlit-webapp`→`streamlit`, `genai-chatbot`→`chatbot`).
 
@@ -18,7 +20,7 @@ canonical data as the website and profile.
 - `tools/adapter-portfolio-readme.mjs` — generates this repo's README showcase
   (featured + all projects by theme) between `<!-- PORTFOLIO -->` markers.
 - `tools/lib.mjs` — shared rendering helpers for the README adapters.
-- `npm run build:profile` — featured table for the profile README.
+- `npm run build:profile-readme` — featured table for the profile README.
 
 ### Changed
 - `README.md` is now the generated GitHub vitrine (was the system doc; system docs

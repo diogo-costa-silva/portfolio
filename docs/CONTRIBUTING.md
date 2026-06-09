@@ -63,8 +63,8 @@ The same canonical data feeds every surface via adapters — never duplicate it:
 
 | Surface | Command |
 |---|---|
-| this repo's README (GitHub vitrine) | `npm run build:readme` |
-| webfolio-v1-vanilla (live site) | `npm run build:v1 -- <site>/data/projects.json` |
+| this repo's README (GitHub vitrine) | `npm run build:portfolio-readme` |
+| webfolio-v1-vanilla (live site) | `npm run build:webfolio-v1 -- <site>/data/projects.json` |
 | profile README (diogo-costa-silva) | `node tools/adapter-profile-readme.mjs --write <README.md>` |
 
 The profile README needs the markers `<!-- PORTFOLIO:START -->` /
