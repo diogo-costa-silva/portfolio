@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Adapter: canonical projects.json -> webfolio-v1-vanilla schema.
-// Usage: node adapters/to-v1-vanilla.mjs <path-to-webfolio-v1-vanilla>/data/projects.json
+// Usage: node tools/adapter-v1-vanilla.mjs <path-to-webfolio-v1-vanilla>/data/projects.json
 // The canonical hub stays website-agnostic; this maps it to the live site's shape.
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -9,7 +9,7 @@ import { dirname, join } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const target = process.argv[2];
-if (!target) { console.error("Usage: node adapters/to-v1-vanilla.mjs <target projects.json>"); process.exit(1); }
+if (!target) { console.error("Usage: node tools/adapter-v1-vanilla.mjs <target projects.json>"); process.exit(1); }
 
 const canon = JSON.parse(readFileSync(join(ROOT, "data/projects.json"), "utf8"));
 

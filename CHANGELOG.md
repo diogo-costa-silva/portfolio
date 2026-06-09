@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.1.0] - 2026-06-09
+
+Made the `portfolio` repo a recruiter-facing GitHub vitrine, generated from the same
+canonical data as the website and profile.
+
+### Added
+- `tools/adapter-portfolio-readme.mjs` — generates this repo's README showcase
+  (featured + all projects by theme) between `<!-- PORTFOLIO -->` markers.
+- `tools/lib.mjs` — shared rendering helpers for the README adapters.
+- `npm run build:profile` — featured table for the profile README.
+
+### Changed
+- `README.md` is now the generated GitHub vitrine (was the system doc; system docs
+  live in `GUIDE.md`/`SCHEMA.md`/`CONTRIBUTING.md`).
+- `adapter-profile-readme.mjs` now emits the **featured** subset + links (not the full list).
+- Engine relocated to `tools/` (`scripts/` + `adapters/` merged) for a cleaner repo root.
+- `sync.yml` now also rebuilds the README showcase and includes it in the PR.
+
 ## [1.0.0] - 2026-06-09
 
 Repurposed `portfolio` from a hand-maintained README into the canonical,

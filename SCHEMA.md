@@ -1,7 +1,7 @@
 # Canonical Project Schema
 
 `data/projects.json` is the **website-agnostic source of truth** for every showcased
-project. It is **generated** by `scripts/sync.mjs` from two inputs:
+project. It is **generated** by `tools/sync.mjs` from two inputs:
 
 1. **GitHub repos** carrying the `portfolio` topic (auto-derived fields).
 2. **`data/overrides.json`** — the only file edited by hand (authored fields).

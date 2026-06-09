@@ -63,9 +63,9 @@ The same canonical data feeds every surface via adapters — never duplicate it:
 
 | Surface | Command |
 |---|---|
-| webfolio-v1-vanilla (live site) | `node adapters/to-v1-vanilla.mjs <site>/data/projects.json` |
-| profile README (diogo-costa-silva) | `node adapters/to-profile-readme.mjs --write <README.md>` |
-| this repo's README | (regenerated from the same data) |
+| this repo's README (GitHub vitrine) | `npm run build:readme` |
+| webfolio-v1-vanilla (live site) | `npm run build:v1 -- <site>/data/projects.json` |
+| profile README (diogo-costa-silva) | `node tools/adapter-profile-readme.mjs --write <README.md>` |
 
 The profile README needs the markers `<!-- PORTFOLIO:START -->` /
 `<!-- PORTFOLIO:END -->` where the tables should be injected.

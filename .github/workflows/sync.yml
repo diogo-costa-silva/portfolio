@@ -23,13 +23,15 @@ jobs:
         env:
           # Default token reads public repos; set PORTFOLIO_PAT to also see private/topics reliably.
           GITHUB_TOKEN: ${{ secrets.PORTFOLIO_PAT || secrets.GITHUB_TOKEN }}
-        run: npm run sync
+        run: |
+          npm run sync           # canonical data/projects.json
+          npm run build:readme   # regenerate this repo's README showcase from it
 
-      - name: Open PR if data changed
+      - name: Open PR if anything changed
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if git diff --quiet -- data/projects.json; then
+          if git diff --quiet -- data/projects.json README.md; then
             echo "No changes."
             exit 0
           fi
@@ -37,9 +39,9 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$branch"
-          git add data/projects.json
-          git commit -m "chore: sync portfolio data"
+          git add data/projects.json README.md
+          git commit -m "chore: sync portfolio data and showcase"
           git push origin "$branch"
           gh pr create --fill \
-            --title "chore: sync portfolio data" \
-            --body "Automated regeneration of \`data/projects.json\` from GitHub repos + overrides. Review before merge."
+            --title "chore: sync portfolio data and showcase" \
+            --body "Automated regeneration of \`data/projects.json\` and the README showcase from GitHub repos + overrides. Review before merge."

@@ -6,11 +6,12 @@
   "description": "Canonical, website-agnostic source of truth for Diogo's projects. Generated from GitHub repos (topic: portfolio) + hand-authored overrides.",
   "engines": { "node": ">=18" },
   "scripts": {
-    "sync": "node scripts/sync.mjs",
-    "candidates": "node scripts/sync.mjs --candidates",
-    "check": "node scripts/sync.mjs --check",
-    "tags": "node scripts/sync.mjs --tags",
-    "build:v1": "node adapters/to-v1-vanilla.mjs",
-    "build:readme": "node adapters/to-profile-readme.mjs"
+    "sync": "node tools/sync.mjs",
+    "candidates": "node tools/sync.mjs --candidates",
+    "check": "node tools/sync.mjs --check",
+    "tags": "node tools/sync.mjs --tags",
+    "build:v1": "node tools/adapter-v1-vanilla.mjs",
+    "build:readme": "node tools/adapter-portfolio-readme.mjs",
+    "build:profile": "node tools/adapter-profile-readme.mjs"
   }
 }

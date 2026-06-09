@@ -4,9 +4,9 @@
 // GitHub repo metadata (auto) with data/overrides.json (hand-authored).
 //
 // Usage:
-//   node scripts/sync.mjs               generate data/projects.json
-//   node scripts/sync.mjs --candidates  list every public repo + whether it would be included
-//   node scripts/sync.mjs --check       validate overrides/taxonomy without writing
+//   node tools/sync.mjs               generate data/projects.json
+//   node tools/sync.mjs --candidates  list every public repo + whether it would be included
+//   node tools/sync.mjs --check       validate overrides/taxonomy without writing
 //
 // Auth: uses GITHUB_TOKEN env (CI) or `gh auth token` (local). Zero npm deps.
 
@@ -184,7 +184,7 @@ projects.sort((a, b) =>
 
 const payload = {
   $schema: "./SCHEMA.md",
-  generatedBy: "scripts/sync.mjs",
+  generatedBy: "tools/sync.mjs",
   owner: OWNER,
   count: projects.length,
   projects,
@@ -196,7 +196,7 @@ if (MODE === "tags") {
   const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   console.log(`\nDistinct tags across ${projects.length} project(s) — review for synonyms to alias:\n`);
   for (const [tag, n] of sorted) console.log(`  ${String(n).padStart(2)}  ${tag}`);
-  console.log(`\n${sorted.length} distinct tags. Add canonicalizations to TAG_ALIASES in scripts/sync.mjs.\n`);
+  console.log(`\n${sorted.length} distinct tags. Add canonicalizations to TAG_ALIASES in tools/sync.mjs.\n`);
   process.exit(0);
 }
 
