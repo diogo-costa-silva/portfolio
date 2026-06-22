@@ -48,7 +48,7 @@ everything else is generated.
 ```bash
 node --version          # need >= 18 (you have 24)
 gh auth status          # must be logged in as diogo-costa-silva
-cd ~/Projects/portfolio # the hub repo
+cd ~/Developer/Projects/portfolio # the hub repo
 ```
 No `npm install` needed — the engine has zero dependencies.
 
@@ -73,67 +73,235 @@ Raw engine flags: `node tools/sync.mjs [--candidates\|--tags\|--check]`.
 
 ## 4. Core workflows
 
+> **How to read these recipes.** Every step says exactly what to type, exactly what to
+> paste, and **what you should see** when it worked (`✅`). The examples use a real
+> made-up repo, `crime-map`, so you can follow along literally — just swap the name.
+> All commands run from the hub: `cd ~/Developer/Projects/portfolio`.
+
 ### 4a. Add a new project ⭐ (the main one)
 
+You pushed a new repo (`crime-map`, a Leaflet crime heatmap) and want it on the portfolio.
+
+**Step 1 — Tag the repo with `portfolio` (this is what opts it in).**
+Add real tech topics too; they become `tags` and help GitHub search.
 ```bash
-# 1. Tag the repo (opt-in). Add real tech topics too — they feed tags + GitHub search.
-gh repo edit diogo-costa-silva/<repo> --add-topic portfolio
-gh repo edit diogo-costa-silva/<repo> --add-topic python --add-topic streamlit
-
-# 2. (recommended) set the repo's About + homepage on GitHub — they become tagline + demo
-gh repo edit diogo-costa-silva/<repo> --description "One line" --homepage "https://demo-url"
-
-# 3. Enrich in data/overrides.json, keyed by repo name:
-#    { "<repo>": { "title": "...", "tagline": "...", "description": "...",
-#                  "category": "data-analytics", "tags": ["python"], "featured": false, "weight": 0 } }
-
-# 4. Generate + validate
-npm run sync
-npm run check
+gh repo edit diogo-costa-silva/crime-map --add-topic portfolio
+gh repo edit diogo-costa-silva/crime-map --add-topic react --add-topic leaflet
 ```
-If you tag a repo but forget the override, `sync` flags it *needs enrichment* and
-excludes it until you add the entry.
+✅ Verify the topic landed:
+```bash
+gh repo view diogo-costa-silva/crime-map --json repositoryTopics
+# → {"repositoryTopics":[{"name":"portfolio"},{"name":"react"},{"name":"leaflet"}]}
+```
+
+**Step 2 — (recommended) set About + homepage on GitHub.**
+The About line becomes the fallback `tagline`; the homepage becomes the `demo` link.
+```bash
+gh repo edit diogo-costa-silva/crime-map \
+  --description "Heatmap of city crime from open data" \
+  --homepage "https://crime-map.vercel.app"
+```
+
+**Step 3 — Add the enrichment entry to `data/overrides.json`.**
+The **key must equal the repo name exactly**. Drop this block inside the top-level `{ }`
+(mind the comma between entries). `category` must be one of the IDs in `taxonomy.json`
+(see the table in §4f); `tags` are free-form.
+```json
+  "crime-map": {
+    "title": "Crime Map",
+    "tagline": "Heatmap of city crime from open data",
+    "description": "Interactive Leaflet heatmap of reported crime, built on React + open municipal data, deployed on Vercel.",
+    "highlight": "Open-data heatmap",
+    "category": "web",
+    "tags": ["react", "leaflet", "open-data"],
+    "featured": false,
+    "weight": 0
+  }
+```
+
+**Step 4 — Regenerate the canonical dataset and validate.**
+```bash
+npm run sync      # rebuilds data/projects.json from GitHub + overrides
+npm run check     # validates everything, writes nothing
+```
+✅ You should see `crime-map` listed in `sync`'s output and `check` end with no `✖`.
+❌ If you tag the repo but skip Step 3, `sync` prints `⚠ crime-map needs enrichment`
+and leaves it **out** of the site until you add the entry.
+
+---
 
 ### 4b. Edit an existing project
-Edit its entry in `data/overrides.json` → `npm run sync`. That's it. Override fields
-always win over GitHub-derived ones (e.g. set `"demo"` to override the repo homepage).
+
+Say you want to fix the tagline of `motogp-analytics` and bump its sort order.
+
+**Step 1 —** open `data/overrides.json` and change its entry. Override fields **always
+win** over GitHub-derived ones (set `"demo"` here to override the repo homepage, etc.).
+```diff
+   "motogp-analytics": {
+     "title": "MotoGP Analytics",
+-    "tagline": "Exploring 70+ years of MotoGP data (1949–2022)",
++    "tagline": "70 years of MotoGP, one reproducible pipeline",
+     "category": "data-analytics",
+     "tags": ["python", "pandas", "jupyter"],
+     "featured": true,
+-    "weight": 7
++    "weight": 9
+   }
+```
+**Step 2 —** regenerate:
+```bash
+npm run sync
+```
+✅ That's it — the new tagline/order flow to every surface on the next build.
+
+---
 
 ### 4c. Hide or remove a project
-- **Hide** (keep repo public, drop from site): set `"visible": false` in the override.
-- **Remove** entirely: `gh repo edit diogo-costa-silva/<repo> --remove-topic portfolio`.
-- Either way → `npm run sync`.
+
+Two different intents:
+
+**Hide** (keep the repo public, just drop it from the portfolio) — add `"visible": false`:
+```diff
+   "sql-murder-mystery": {
+     "title": "SQL Murder Mystery",
+     "category": "data-engineering",
++    "visible": false
+   }
+```
+
+**Remove entirely** (it should no longer be a portfolio project at all) — pull the topic:
+```bash
+gh repo edit diogo-costa-silva/sql-murder-mystery --remove-topic portfolio
+```
+Either way, finish with:
+```bash
+npm run sync
+```
+✅ After sync the project is gone from `data/projects.json` (and thus every surface).
+
+---
 
 ### 4d. Project with no public repo (manual entry)
-Add an override with a custom slug and `"source": "manual"`, plus its own `links`/`media`:
+
+For a talk, a private/client project, or slides — anything without a public GitHub repo.
+Use a **custom slug** as the key and set `"source": "manual"` so `sync` doesn't expect a
+matching repo. Provide your own `links`:
 ```json
-"my-talk-2026": {
-  "source": "manual", "title": "Conf Talk", "tagline": "...", "category": "data-analytics",
-  "tags": ["talk"], "links": { "repo": null, "demo": "https://slides..." }, "image": "..."
-}
+  "pydata-talk-2026": {
+    "source": "manual",
+    "title": "Reproducible Data Apps — PyData 2026",
+    "tagline": "Lightning talk on shipping notebooks as apps",
+    "description": "20-minute talk on turning analysis notebooks into deployable Streamlit apps.",
+    "category": "data-analytics",
+    "tags": ["talk", "streamlit"],
+    "links": { "repo": null, "demo": "https://slides.com/diogo/pydata-2026" },
+    "image": "https://…/cover.png",
+    "featured": false,
+    "weight": 0
+  }
 ```
+Then `npm run sync && npm run check`.
+✅ It appears like any other project, but with no repo link.
+
+---
 
 ### 4e. Feature / reorder
-- `"featured": true` → the surface can highlight it.
-- `"weight": <n>` → sort within its category (higher first). Ties break by repo update date.
+
+Two independent knobs in an override entry:
+
+- `"featured": true` → the project becomes eligible for the highlighted slots (profile
+  README hero, top of the vitrine). Keep this to your best **4–6**.
+- `"weight": <n>` → sort order **within its category**, higher first. Ties break by the
+  repo's last-update date.
+
+Concrete: to make `moto-routes` outrank `scenic-routes-simple` in the **Web** group,
+give it the higher weight (it already does — `10` vs `9`). Bump and re-sync:
+```bash
+# edit overrides.json: "moto-routes" → "weight": 12
+npm run sync
+```
+✅ `moto-routes` now sits above `scenic-routes` wherever Web projects are listed.
+
+---
 
 ### 4f. Add a new category (governance)
-Only when it's a recurring **delivery type** with ≥3 expected projects that fits nowhere.
-Otherwise use a tag. Edit `data/taxonomy.json` (`categories` + `categoryPrecedence`),
-document it in CONTRIBUTING.md, then `npm run sync`. Picking a category → choose by
-**what the project delivers**, not its tech (tech → tags).
+
+Categories are a **closed vocabulary**. Only add one for a recurring **delivery type**
+with ≥3 expected projects that genuinely fits nowhere — otherwise use a tag. Pick a
+category by **what the project delivers**, not its tech stack (tech → `tags`).
+
+Current valid `category` IDs (from `data/taxonomy.json`):
+
+| ID | Use for |
+|---|---|
+| `data-analytics` | EDA, dashboards, BI, stats, data-viz |
+| `machine-learning` | modeling, prediction, ML pipelines |
+| `data-engineering` | ETL, SQL, databases, orchestration |
+| `ai-apps` | LLM/GenAI apps, chatbots, agents |
+| `web` | websites, frontend, full-stack web apps |
+| `backend` | APIs/services without a web UI |
+| `devops` | IaC, CI/CD, containers, cloud, monitoring |
+| `automation` | scripts, bots, tooling, homelab |
+| `mobile` | mobile apps *(reserved — no projects yet)* |
+| `library` | reusable packages/tooling *(reserved)* |
+
+To actually add one (e.g. `data-science`):
+
+**Step 1 —** add it to the `categories` array in `data/taxonomy.json`:
+```json
+  { "id": "data-science", "label": "Data Science", "order": 11, "icon": "flask",
+    "description": "End-to-end studies combining analysis and modeling." }
+```
+**Step 2 —** add its `id` to the `categoryPrecedence` array (controls grouping order).
+**Step 3 —** document the new category in `docs/CONTRIBUTING.md`.
+**Step 4 —** `npm run sync`.
+✅ `sync` now accepts `"category": "data-science"` in overrides instead of erroring.
+
+---
 
 ### 4g. Clean up tags
+
 ```bash
-npm run tags          # see all distinct tags + counts
+npm run tags
 ```
-Spot synonyms (e.g. `streamlit-webapp` vs `streamlit`). Fix either by editing the
-project's `tags` in overrides, or add a global rule to `TAG_ALIASES` in
-`tools/sync.mjs` (e.g. `"streamlit-webapp": "streamlit"`), then `npm run sync`.
+✅ Prints every distinct tag with its count, e.g.:
+```
+  python            6
+  streamlit         4
+  streamlit-webapp  1   ← synonym to fix
+  react             2
+```
+Two ways to fix a synonym like `streamlit-webapp` → `streamlit`:
+
+- **One-off:** edit that project's `tags` array in `data/overrides.json`.
+- **Global rule** (applies everywhere, now and future): add it to `TAG_ALIASES` in
+  `tools/sync.mjs`:
+  ```js
+  const TAG_ALIASES = {
+    "streamlit-webapp": "streamlit",
+    // …
+  };
+  ```
+Then `npm run sync` and re-run `npm run tags` to confirm the synonym is gone.
+
+---
 
 ### 4h. Renaming a repo
-The `slug` = repo name. If you rename the repo on GitHub, rename its key in
-`overrides.json` to match, or the override silently stops applying. `npm run check`
-will flag the orphaned-by-rename repo as *needs enrichment*.
+
+The `slug` **is** the repo name, so the override key must track it. If you rename
+`crime-map` → `crime-heatmap` on GitHub:
+
+**Step 1 —** rename the key in `data/overrides.json` to match:
+```diff
+-  "crime-map": {
++  "crime-heatmap": {
+```
+**Step 2 —** `npm run check`.
+✅ Validation passes. ❌ If you forget, the old key no longer matches any repo and
+`check` flags `crime-heatmap needs enrichment` while the stale `crime-map` override
+silently does nothing.
+
+---
 
 ### 4i. Roadmap / ideas (things you plan to build but haven't started)
 A **public wishlist** of ideas with no repo yet. It lives in `data/roadmap.json` — the
@@ -150,14 +318,25 @@ issue/discussion URL — **never** a demo/repo that 404s), `weight` (default `0`
 Full table: [SCHEMA.md](SCHEMA.md#roadmap-items-dataroadmapjson).
 
 **Add an idea**
+
+**Step 1 —** add an object to the `"items"` array in `data/roadmap.json`:
+```json
+  {
+    "slug": "crime-map",
+    "title": "Crime Map",
+    "category": "web",
+    "status": "idea",
+    "problem": "No quick way to see where crime clusters in my city.",
+    "horizon": "next",
+    "tags": ["react", "leaflet"]
+  }
+```
+**Step 2 —** validate, then render:
 ```bash
-# 1. add an item to data/roadmap.json's "items" array:
-#    { "slug": "crime-map", "title": "Crime Map", "category": "web", "status": "idea",
-#      "problem": "No quick way to see where crime clusters in my city.",
-#      "horizon": "next", "tags": ["react","leaflet"] }
 npm run check                     # validates slug/vocab + required fields (writes nothing)
 npm run build:portfolio-readme    # renders the 🔭 Roadmap section in this repo's README
 ```
+✅ `check` ends with no `✖`, and the idea shows up under 🔭 Roadmap in `README.md`.
 
 **Edit an idea** — change its item in `data/roadmap.json` → `npm run check` → rebuild.
 
@@ -181,53 +360,125 @@ top-level `roadmap` array into the site JSON).
 
 ## 5. Publishing workflows
 
+> **The picture.** §4 updates the **canonical data** (`data/projects.json`). §5 pushes
+> that data **out** to the three surfaces: the live site (5a), this repo's vitrine (5b),
+> and the profile README (5c). 5d is the robot that does 5b for you weekly. Each recipe
+> below is numbered with a `✅` so you know it worked.
+
 ### 5a. Publish to the live site (manual — recommended to start)
-The live site is `webfolio-v1-vanilla` → auto-deploys to `.github.io` → Pages.
+
+The chain is `webfolio-v1-vanilla` (you push here) → `deploy-from-source.yml` →
+`diogo-costa-silva.github.io` → GitHub Pages. **Never** edit `.github.io` directly — it's
+overwritten on every deploy.
+
+**Step 0 — clone the site once** (skip if `~/Developer/Projects/webfolio-v1-vanilla` already exists):
 ```bash
-# clone the site once if you haven't:
-#   git clone https://github.com/diogo-costa-silva/webfolio-v1-vanilla ~/Projects/webfolio-v1-vanilla
-npm run build:webfolio-v1 -- ~/Projects/webfolio-v1-vanilla/data/projects.json
-cd ~/Projects/webfolio-v1-vanilla
-git checkout -b update-projects && git add data/projects.json
-git commit -m "chore: update projects from portfolio hub" && git push -u origin update-projects
-# open a PR; on merge to main, deploy-from-source.yml publishes to Pages automatically.
+git clone https://github.com/diogo-costa-silva/webfolio-v1-vanilla ~/Developer/Projects/webfolio-v1-vanilla
 ```
-Never edit `diogo-costa-silva.github.io` directly — it's the deploy target.
+
+**Step 1 — from the hub, build the site's data file** from the canonical dataset:
+```bash
+cd ~/Developer/Projects/portfolio
+npm run build:webfolio-v1 -- ~/Developer/Projects/webfolio-v1-vanilla/data/projects.json
+```
+✅ This overwrites `~/Developer/Projects/webfolio-v1-vanilla/data/projects.json` with the
+site-shaped JSON (it logs the file path + project count).
+
+**Step 2 — commit & push the site repo on a branch:**
+```bash
+cd ~/Developer/Projects/webfolio-v1-vanilla
+git checkout -b update-projects
+git add data/projects.json
+git commit -m "chore: update projects from portfolio hub"
+git push -u origin update-projects
+```
+
+**Step 3 — open a PR and merge it:**
+```bash
+gh pr create --fill        # or open the link git printed, in the browser
+gh pr merge --squash
+```
+✅ On merge to `main`, `deploy-from-source.yml` runs and publishes to Pages. Watch it:
+```bash
+gh run watch --repo diogo-costa-silva/webfolio-v1-vanilla
+```
+Then confirm the live site at <https://diogo-costa-silva.github.io>.
+
+---
 
 ### 5b. The portfolio repo README (GitHub vitrine)
-This repo's own README **is** your GitHub showcase — it's pinned on your profile and
-is the "All projects" target. It's regenerated from the canonical data:
+
+This repo's own `README.md` **is** your GitHub showcase — pinned on your profile and the
+"All projects" target. It's regenerated from the canonical data between the
+`<!-- PORTFOLIO:START -->` / `<!-- PORTFOLIO:END -->` markers (already present in `README.md`).
+
+**Step 1 —** rebuild it:
 ```bash
-npm run build:portfolio-readme    # rebuilds README.md between the PORTFOLIO markers
+cd ~/Developer/Projects/portfolio
+npm run build:portfolio-readme
 ```
-The weekly Action (§5c) already does this and PRs it, so it stays in sync on its own.
-Pin this repo (and your best repos) on your profile — pins have no API, do it in the
-GitHub UI under your profile → "Customize your pins".
+✅ Only the block between the markers changes — inspect the diff before committing:
+```bash
+git diff README.md
+```
+**Step 2 —** commit & push:
+```bash
+git add README.md && git commit -m "docs: refresh portfolio vitrine" && git push
+```
+The weekly Action (§5d) already runs this and PRs it, so the README stays in sync on its
+own. Pinning has no API — do it once in the GitHub UI: your profile → **Customize your
+pins** → tick this `portfolio` repo + your best repos.
+
+---
 
 ### 5c. Update the GitHub profile README (featured)
-One-time: add these two markers in `diogo-costa-silva/README.md` where the featured
-list should go:
+
+The profile README (`diogo-costa-silva/README.md`, the special repo that renders on your
+profile page) shows your **featured** projects.
+
+**Step 1 — one-time:** add these two markers where the featured list should appear:
 ```html
 <!-- PORTFOLIO:START -->
 <!-- PORTFOLIO:END -->
 ```
-Then regenerate anytime (injects the **featured** projects + links to the full list):
+**Step 2 — regenerate anytime** (injects the featured projects + a link to the full list):
 ```bash
-node tools/adapter-profile-readme.mjs --write ~/Projects/diogo-costa-silva/README.md
+cd ~/Developer/Projects/portfolio
+node tools/adapter-profile-readme.mjs --write ~/Developer/Projects/diogo-costa-silva/README.md
+```
+✅ The text between the two markers is replaced with the featured table.
+**Step 3 —** commit & push the profile repo:
+```bash
+cd ~/Developer/Projects/diogo-costa-silva
+git add README.md && git commit -m "docs: refresh featured projects" && git push
 ```
 
+---
+
 ### 5d. Automated weekly sync (the hub's own Action)
-`.github/workflows/sync.yml` runs Mondays 06:00 UTC (and on manual dispatch). It
-regenerates `data/projects.json` **and** the README showcase, and **opens a PR** if
-anything changed — you review and merge. Trigger manually:
+
+`.github/workflows/sync.yml` runs **Mondays 06:00 UTC** (and on manual dispatch). It
+re-runs `sync` **and** `build:portfolio-readme`, and **opens a PR** if anything changed —
+you just review and merge. So 5b happens on its own; you only do 5a/5c by hand.
+
+**Trigger it manually** (don't want to wait for Monday):
 ```bash
 gh workflow run "Sync portfolio"
+gh run watch --repo diogo-costa-silva/portfolio   # follow it live
 ```
-It reads public repos with the default token. To also read private repos/topics
-reliably, create a fine-grained PAT (read-only `contents`+`metadata`) and add it as
-the repo secret `PORTFOLIO_PAT`:
+✅ If your GitHub data changed, a PR titled like *"Sync portfolio"* appears on the repo —
+review the diff and merge.
+
+**Private repos / topics:** the default token only reads public repos. To pick up private
+ones reliably, create a fine-grained PAT (read-only `contents` + `metadata`) and store it
+as the repo secret `PORTFOLIO_PAT`:
 ```bash
 gh secret set PORTFOLIO_PAT --repo diogo-costa-silva/portfolio
+# paste the token when prompted
+```
+✅ Confirm it's set:
+```bash
+gh secret list --repo diogo-costa-silva/portfolio   # → PORTFOLIO_PAT  Updated …
 ```
 
 ---
@@ -244,11 +495,11 @@ gh repo edit diogo-costa-silva/crime-map --homepage "https://crime-map.vercel.ap
 #                  "description": "...", "category": "web", "tags": ["react","leaflet"],
 #                  "featured": true, "weight": 7 }
 
-cd ~/Projects/portfolio
+cd ~/Developer/Projects/portfolio
 npm run sync && npm run check                 # canonical updated + valid
 npm run build:portfolio-readme                          # → this repo's GitHub vitrine
-npm run build:webfolio-v1 -- ~/Projects/webfolio-v1-vanilla/data/projects.json   # → live site
-node tools/adapter-profile-readme.mjs --write ~/Projects/diogo-costa-silva/README.md   # → profile featured
+npm run build:webfolio-v1 -- ~/Developer/Projects/webfolio-v1-vanilla/data/projects.json   # → live site
+node tools/adapter-profile-readme.mjs --write ~/Developer/Projects/diogo-costa-silva/README.md   # → profile featured
 # commit/push each repo; sites auto-deploy. Done.
 ```
 
